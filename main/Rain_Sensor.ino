@@ -11,5 +11,5 @@ void setupRainsensor(){
 
 void readRainsensor(){
   gRaindata =  analogRead(RAINPIN);
-  Serial.println(gRaindata);
+  Serial.println(gRaindata); // debuging: shows value on serial monitor 
 }
