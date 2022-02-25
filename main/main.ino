@@ -5,6 +5,7 @@ void setup() {
   setupUvsensor();
   setupTemt6000sensor();
   setupAnemosensor();
+  setupWinddirectionsensor();
 
 }
 
@@ -14,5 +15,6 @@ void loop() {
   readUvsensor();
   readTemt6000sensor();
   readAnemosensor();
+  readWinddirectionsensor();
   delay(1000);
 }
