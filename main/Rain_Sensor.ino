@@ -1,8 +1,8 @@
 /* Rain sensor properties */
 // it produces analog value 0 - 1023 (10 bit)
 
-// variables
-int rainData; 
+// variables global
+int gRaindata; 
 
 // setup method 
 void setupRainsensor(){
@@ -10,6 +10,6 @@ void setupRainsensor(){
 }
 
 void readRainsensor(){
-  rainData =  analogRead(RAINPIN);
-  Serial.println(rainData);
+  gRaindata =  analogRead(RAINPIN);
+  Serial.println(gRaindata);
 }
