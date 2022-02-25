@@ -12,5 +12,6 @@ void setupTemt6000sensor(){
 
 void readTemt6000sensor(){
   gTemt6000data = analogRead(TEMT6000PIN);
+  Serial.print("TEMT6000 data / light ambient (Analog): ");
   Serial.println(gTemt6000data); // debuging: shows value on serial monitor 
 }

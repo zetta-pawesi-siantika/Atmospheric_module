@@ -12,5 +12,6 @@ void setupUvsensor(){
 
 void readUvsensor(){
   gUvdata = analogRead(UVPIN);
+  Serial.print("UV data (Analog): ");
   Serial.println(gUvdata); // debuging: shows value on serial monitor 
 }
