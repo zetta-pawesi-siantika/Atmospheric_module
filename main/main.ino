@@ -6,6 +6,7 @@ void setup() {
   setupTemt6000sensor();
   setupAnemosensor();
   setupWinddirectionsensor();
+  setupMq135sensor();
 
 }
 
@@ -16,5 +17,6 @@ void loop() {
   readTemt6000sensor();
   readAnemosensor();
   readWinddirectionsensor();
+  readMq135sensor();
   delay(1000);
 }
