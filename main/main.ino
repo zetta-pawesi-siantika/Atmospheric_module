@@ -7,6 +7,7 @@ void setup() {
   setupAnemosensor();
   setupWinddirectionsensor();
   setupMq135sensor();
+  setupBme280sensor();
 
 }
 
@@ -18,5 +19,6 @@ void loop() {
   readAnemosensor();
   readWinddirectionsensor();
   readMq135sensor();
+  readBme280sensor();
   delay(1000);
 }
