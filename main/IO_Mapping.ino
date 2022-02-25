@@ -23,7 +23,7 @@
 /* MQ 135 MQ Sensor */
 #define MQPIN A4 
 /* Anemometer */
-#define ANEMOPIN  A5
+#define ANEMOMETERPIN A5
 
 /* analog pin block ends here */
 
