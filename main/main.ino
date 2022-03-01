@@ -1,3 +1,4 @@
+#include <DS3232RTC.h>  //RTC Library https://github.com/JChristensen/DS3232RTC
 void setup() {
   Serial.begin(9600); // begin serial communication
   
@@ -9,10 +10,11 @@ void setup() {
   setupMq135sensor();
   setupBme280sensor();
 
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+y:
   readRainsensor();
   readUvsensor();
   readTemt6000sensor();
@@ -20,5 +22,6 @@ void loop() {
   readWinddirectionsensor();
   readMq135sensor();
   readBme280sensor();
-  delay(1000);
+  delay(1000);;
+  
 }

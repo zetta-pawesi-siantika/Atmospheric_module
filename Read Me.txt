@@ -1,0 +1,6 @@
+This code is used to capture all atmospheric parameter.
+
++ for execution, go to main.ino
++ please notify Siantika if you want to push the code
++ make sure you create new branch before edit the main branch
++ this code works properly but still need improvement (many sensors rewure correct formula to get the real value)

@@ -31,7 +31,7 @@
 /* Digital Pin */
 /* block starts here */
 /* Wind Direction */
-#define N 2   // North 
+#define N 11   // North 
 #define NE 3  // North East
 #define E 4   // East
 #define SE 5  // South East
