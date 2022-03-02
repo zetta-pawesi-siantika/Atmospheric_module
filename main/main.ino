@@ -16,7 +16,7 @@ void setup() {
 void loop() {
 y:
   readRainsensor();
-  readUvsensor();
+//  readUvsensor();
   readTemt6000sensor();
   readAnemosensor();
   readWinddirectionsensor();

@@ -1,0 +1,65 @@
+[33mcommit 86affc7f2b7df067b4fe7ba9de7a2a07fd698503[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Tue Mar 1 13:09:38 2022 +0800
+
+    creating Serial_com, sleep operation, and readme.txt
+
+[33mcommit 085ec7efb0e31c19bd2130939d9f593c70958b4b[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 13:18:25 2022 +0800
+
+    All sensor successfully operate
+
+[33mcommit 3e6b73042e217080640f9c54ebb00a16566f36ca[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 13:13:07 2022 +0800
+
+    creating Bme280_Sensor tab. The code works
+
+[33mcommit 65c791a203be00bab125a14d69ca4a4825757e87[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 11:46:15 2022 +0800
+
+    creating Mq135_Sensor tab. Code works
+
+[33mcommit 8f9d444af5aaca599d4775d6060dd3ffe46777ff[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 11:20:57 2022 +0800
+
+    Creating Winddirectionsensor tab. the code works
+
+[33mcommit d1a66befda35b967fbaf9a9e0d44ff03f42eb2b7[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 11:11:20 2022 +0800
+
+    creating Anemo_Sensor tab, it works but it has to put pin initialization on it's tab (#issue1)
+
+[33mcommit fe80d18babb1581770e4d0a7c2e0c24120ebd241[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 10:36:26 2022 +0800
+
+    creating Temt6000_Sensor tab, the code works
+
+[33mcommit 309f5a9df5e62ca6b5e919e2aa8b26a7ab7cc754[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 10:27:23 2022 +0800
+
+    creating Uv_sensor tab, the code works
+
+[33mcommit e55ec53fcec01789271759c0257a70669de7b136[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 10:16:06 2022 +0800
+
+    change variable rainData to gRaindata (type convention for global variable)
+
+[33mcommit 8dca99fb904111e8b99509ead9014708f4797f00[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 10:10:38 2022 +0800
+
+    rain sensor code works
+
+[33mcommit e08eb63f805024f5b373726dab39aea636163af4[m
+Author: I Putu Pawesi Siantika <csiantka@gmail.com>
+Date:   Fri Feb 25 10:02:55 2022 +0800
+
+    creating files: main, IO_Mapping, and Rain_Sensor
