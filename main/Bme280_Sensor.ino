@@ -42,17 +42,19 @@ void readBme280sensor() {
   gTemperature = bme.readTemperature();
   gPressure = bme.readPressure()/ BAROMETRIC_CONST;
   gHumidity = bme.readHumidity();
+
+  #ifdef DEBUG_BME280
+    Serial.print("Temperature = ");
+    Serial.print(gTemperature);
+    Serial.println(" °C");
   
-  Serial.print("Temperature = ");
-  Serial.print(gTemperature);
-  Serial.println(" °C");
-
-  Serial.print("Pressure = ");
-  Serial.print(gPressure);
-  Serial.println(" hPa");
-
-  Serial.print("Humidity = ");
-  Serial.print(gHumidity);
-  Serial.println(" %");
-  Serial.println();
+    Serial.print("Pressure = ");
+    Serial.print(gPressure);
+    Serial.println(" hPa");
+  
+    Serial.print("Humidity = ");
+    Serial.print(gHumidity);
+    Serial.println(" %");
+    Serial.println();
+   #endif
 }

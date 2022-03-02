@@ -42,5 +42,8 @@ if (digitalRead(N) == LOW) {
     gWinddirectiondata = "NORTH WEST";
   }
 
+/* Serial Debug */
+#ifdef DEBUG_WIND_DIRECTION
   Serial.println(gWinddirectiondata);
+ #endif
 }

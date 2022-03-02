@@ -1,7 +1,10 @@
-#include <DS3232RTC.h>  //RTC Library https://github.com/JChristensen/DS3232RTC
+/*  
+ *   main code controls all operation. Code execute this file.
+ *   see documentation here: 
+*/
+
 void setup() {
   Serial.begin(9600); // begin serial communication
-  
   setupRainsensor();
   setupUvsensor();
   setupTemt6000sensor();
@@ -16,7 +19,7 @@ void setup() {
 void loop() {
 
   rainData();
-//  readUvsensor();
+  readUvsensor();
   readTemt6000sensor();
   readAnemosensor();
   readWinddirectionsensor();

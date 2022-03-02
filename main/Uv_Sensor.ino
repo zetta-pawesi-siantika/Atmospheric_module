@@ -20,7 +20,7 @@ void setupUvsensor(){
 
 // converting to UV Index 
 // src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
-void _convertTouvindex(){
+void readUvsensor(){
   _readDataADCUV = analogRead(UVPIN);
   _voltageReadUV = _readDataADCUV / ADC_RESOLUTION;
 
@@ -60,7 +60,11 @@ void _convertTouvindex(){
   else if(1079 >= _voltageReadUV ){
     gUvdata = 11;
   }
-  
+
+  /* Serial debug */
+  #ifdef DEBUG_UV
+    Serial.println(gUvdata);
+  #endif
   
   
 }

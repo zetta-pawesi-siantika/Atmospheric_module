@@ -22,6 +22,6 @@ void readTemt6000sensor(){
     Serial.print("TEMT6000 data / light intensity: ");
     Serial.print(gTemt6000data); // debuging: shows value on serial monitor 
     Serial.println(" %");
-    #endif
+   #endif
     
 }

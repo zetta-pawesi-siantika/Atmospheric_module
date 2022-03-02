@@ -90,17 +90,20 @@ void readMq135sensor() {
   MQ135.setA(34.668); MQ135.setB(-3.369); // Configurate the ecuation values to get Acetona concentration
   gAcetona = MQ135.readSensor(); // Sensor will read PPM concentration using the model and a and b values setted before or in the setup
 
-  // shows value
-  Serial.println("** Lectures from MQ-135 ****");
-  Serial.println("|    CO   |  Alcohol |   CO2  |  Tolueno  |  NH4  |  Acteona  |");
-  Serial.print("|   "); Serial.print(gCo);
-  Serial.print("   |   "); Serial.print(gAlcohol);
-  Serial.print("   |   "); Serial.print(gCo2);
-  Serial.print("   |   "); Serial.print(gTolueno);
-  Serial.print("   |   "); Serial.print(gNh4);
-  Serial.print("   |   "); Serial.print(gAcetona);
-  Serial.println("   |");
-  /*
+  /* serial debug */
+  #ifdef DEBUG_MQ135
+    Serial.println("** Lectures from MQ-135 ****");
+    Serial.println("|    CO   |  Alcohol |   CO2  |  Tolueno  |  NH4  |  Acteona  |");
+    Serial.print("|   "); Serial.print(gCo);
+    Serial.print("   |   "); Serial.print(gAlcohol);
+    Serial.print("   |   "); Serial.print(gCo2);
+    Serial.print("   |   "); Serial.print(gTolueno);
+    Serial.print("   |   "); Serial.print(gNh4);
+    Serial.print("   |   "); Serial.print(gAcetona);
+    Serial.println("   |");
+
+   #endif
+    /*
     Exponential regression:
     GAS      | a      | b
     CO       | 605.18 | -3.937

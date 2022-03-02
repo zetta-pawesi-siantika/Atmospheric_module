@@ -1,12 +1,14 @@
 /* ******************************************************************** */
 /* This sketch file is used to initialize IO pin on ARDUINO MEGA 2560   */
-/* board and Const for code                                                               */
-/* Created by: Pawesi Siantika || 2022                                        */
+/* board and Consts for code                                            */
+/* Created by: Pawesi Siantika || 2022                                  */
 /* ******************************************************************** */
 
 /* Const for Code */
 const float VOLTAGE_REF_3V3 = 3.3; // vcc sensor's is 3.3 V
 const int ADC_RESOLUTION = 1023; // 10-bits resolution
+
+
 /* No needs declare Pin */
 /* many peripherals don't need require initilize Pin, there are:
   1. DS32331 -> I2C on D20 and D21
