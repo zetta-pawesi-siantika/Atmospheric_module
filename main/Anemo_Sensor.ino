@@ -40,11 +40,13 @@ void readAnemosensor() {
     gWindspeed = (_anesensorVoltage - _anevoltageMin) * _anewindSpeedMax / (_anevoltageMax - _anevoltageMin); //For voltages above minimum value, use the linear relationship to calculate wind speed.
   }
 
-  //Print voltage and windspeed to serial
-  Serial.print("Voltage: ");
-  Serial.print(_anesensorVoltage);
-  Serial.print("\t");
-  Serial.print("Wind speed: ");
-  Serial.println(gWindspeed);
+  /*Serial Debug */
+  #ifdef DEBUG_ANEMO
+    Serial.print("Voltage: ");
+    Serial.print(_anesensorVoltage);
+    Serial.print("\t");
+    Serial.print("Wind speed: ");
+    Serial.println(gWindspeed);
+  #endif
 
 }
