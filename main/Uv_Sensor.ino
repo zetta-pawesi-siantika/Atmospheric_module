@@ -61,7 +61,7 @@ void readUvsensor(){
   }
 
   /* Serial debug */
-  #ifdef DEBUG_UV
+  #if defined DEBUG_UV || defined DEBUG_ALL
     Serial.println(gUvdata);
   #endif
   

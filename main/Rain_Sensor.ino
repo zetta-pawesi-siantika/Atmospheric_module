@@ -60,7 +60,7 @@ void rainData(){
   }
 
 /* debug menu */
-  #ifdef DEBUG_RAIN_SENSOR
+  #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL
     Serial.print("Rain data (Analog): ");
     Serial.println(gRaindata); // debuging: shows value on serial monitor 
    #endif

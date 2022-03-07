@@ -8,7 +8,7 @@
 #include "Data_Capture.h"
 
 // use preprocessor to use special method
-#define DEBUG_BME280
+#define DEBUG_ALL
 
 void setup() {
   Serial.begin(9600); // begin serial communication

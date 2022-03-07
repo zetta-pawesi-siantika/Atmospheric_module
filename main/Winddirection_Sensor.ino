@@ -40,7 +40,7 @@ if (digitalRead(N) == LOW) {
   }
 
 /* Serial Debug */
-#ifdef DEBUG_WIND_DIRECTION
+#if defined DEBUG_WIND_DIRECTION || defined DEBUG_ALL
   Serial.println(gWinddirectiondata);
  #endif
 }

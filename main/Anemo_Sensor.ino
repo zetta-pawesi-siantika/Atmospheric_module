@@ -40,7 +40,7 @@ void readAnemosensor() {
   }
 
   /*Serial Debug */
-  #ifdef DEBUG_ANEMO
+  #if defined DEBUG_ANEMO || defined DEBUG_ALL
     Serial.print("Voltage: ");
     Serial.print(_anesensorVoltage);
     Serial.print("\t");

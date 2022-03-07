@@ -82,7 +82,7 @@ void readMq135sensor() {
   gAcetona = MQ135.readSensor(); // Sensor will read PPM concentration using the model and a and b values setted before or in the setup
 
   /* serial debug */
-  #ifdef DEBUG_MQ135
+  #if defined DEBUG_MQ135 || defined DEBUG_ALL
     Serial.println("** Lectures from MQ-135 ****");
     Serial.println("|    CO   |  Alcohol |   CO2  |  Tolueno  |  NH4  |  Acteona  |");
     Serial.print("|   "); Serial.print(gCo);
