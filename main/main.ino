@@ -2,6 +2,8 @@
  *   main code controls all operation. Code execute this file.
  *   see documentation here: 
 */
+// use preprocessor to use special method
+#define DEBUG_UV
 
 void setup() {
   Serial.begin(9600); // begin serial communication

@@ -14,7 +14,7 @@ float gAcetona;
 
 
 // local header file
-#define placa "Arduino UNO"
+#define placa "Arduino MEGA"
 #define Voltage_Resolution 5
 #define type "MQ-135" //MQ135
 #define ADC_Bit_Resolution 10 // For arduino UNO/MEGA/NANO
