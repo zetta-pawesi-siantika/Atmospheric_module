@@ -12,11 +12,9 @@
 Adafruit_BME280 bme; // I2C
 
 
-// variables global
-float gTemperature;
-float gPressure;
-float gHumidity;
+//Local Const
 const float BAROMETRIC_CONST = 100.0F;
+
 
 // setup method
 void setupBme280sensor() {

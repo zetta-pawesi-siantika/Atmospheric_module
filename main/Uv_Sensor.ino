@@ -2,8 +2,7 @@
 // signal voltage = 0 - 1 V
 // it produces UV Index value
 
-// variables global
-int gUvdata;
+
 
 // variables local
 byte _uvIndex;

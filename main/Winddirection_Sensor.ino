@@ -1,9 +1,6 @@
 /* Winddirection sensor properties */
 // it produces wind direction value (String)
 
-// variables global
-String gWinddirectiondata;
-
 // setup method
 void setupWinddirectionsensor(){
   pinMode(N, INPUT_PULLUP);

@@ -4,15 +4,6 @@
 // library
 #include <MQUnifiedsensor.h>
 
-// variables global
-float gCo;
-float gAlcohol;
-float gCo2;
-float gTolueno;
-float gNh4;
-float gAcetona;
-
-
 // local header file
 #define placa "Arduino MEGA"
 #define Voltage_Resolution 5

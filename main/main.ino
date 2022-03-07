@@ -2,9 +2,13 @@
  *   main code controls all operation. Code execute this file.
  *   see documentation here: 
 */
+/* Const for Code */
+
+
+#include "Data_Capture.h"
 
 // use preprocessor to use special method
-#define DEBUG_UV
+#define DEBUG_BME280
 
 void setup() {
   Serial.begin(9600); // begin serial communication
@@ -28,7 +32,6 @@ void loop() {
   readWinddirectionsensor();
   readMq135sensor();
   readBme280sensor();
-//  Serial.print(gWindSpeed);
   delay(1000);;
   
 }

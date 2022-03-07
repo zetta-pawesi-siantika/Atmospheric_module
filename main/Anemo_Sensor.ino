@@ -5,8 +5,7 @@
 // Pin Definition 
 #define ANEMOMETERPIN A5 // -> #issue1: it has to put pin definition here. IO_Mapping doesnt work here 
 
-// variables global
-float gWindspeed = 0; // Wind speed in meters per second (m/s)
+
 
 
 // private Variables

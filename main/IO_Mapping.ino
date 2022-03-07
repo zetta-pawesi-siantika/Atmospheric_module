@@ -1,12 +1,12 @@
 /* ******************************************************************** */
 /* This sketch file is used to initialize IO pin on ARDUINO MEGA 2560   */
-/* board and Consts for code                                            */
+/* board                                                                */
 /* Created by: Pawesi Siantika || 2022                                  */
 /* ******************************************************************** */
 
-/* Const for Code */
-const float VOLTAGE_REF_3V3 = 3.3; // vcc sensor's is 3.3 V
-const int ADC_RESOLUTION = 1023; // 10-bits resolution
+/* */ 
+#define VOLTAGE_REF_3V3 3.3; // vcc sensor's is 3.3 V
+#define ADC_RESOLUTION 1023; // 10-bits resolution
 
 
 /* No needs declare Pin */

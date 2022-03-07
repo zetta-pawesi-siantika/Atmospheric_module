@@ -2,8 +2,6 @@
 // it produces analog value 0 - 1023 (10 bit)
 // do i need convert it to another value?
 
-// variables global
-int gRaindata; 
 
 // variables local
 int _rainAnalogread;

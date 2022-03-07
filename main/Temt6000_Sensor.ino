@@ -5,8 +5,6 @@
 // Const for TEMT6000 light intensity
 const float CONST_LIGHT = 0.0976;
 
-// variables global
-int gTemt6000data;
 
 // setup method
 void setupTemt6000sensor(){
