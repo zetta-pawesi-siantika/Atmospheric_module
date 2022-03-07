@@ -16,7 +16,6 @@ const int ADC_RESOLUTION = 1023; // 10-bits resolution
   3. Data Logger -> SPI (D50-D4)
 */
 
-
 /* Analog pin */
 /* block starts here */
  /* UV sensor */

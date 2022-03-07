@@ -2,6 +2,7 @@
  *   main code controls all operation. Code execute this file.
  *   see documentation here: 
 */
+
 // use preprocessor to use special method
 #define DEBUG_UV
 
@@ -27,6 +28,7 @@ void loop() {
   readWinddirectionsensor();
   readMq135sensor();
   readBme280sensor();
+//  Serial.print(gWindSpeed);
   delay(1000);;
   
 }

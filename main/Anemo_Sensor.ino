@@ -2,7 +2,7 @@
 // it produces wind speed value
 // src: https://www.instructables.com/How-to-Use-a-Adafruit-Anemometer-Sensor-With-Ardui/
 
-// bugs
+// Pin Definition 
 #define ANEMOMETERPIN A5 // -> #issue1: it has to put pin definition here. IO_Mapping doesnt work here 
 
 // variables global
