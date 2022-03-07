@@ -6,8 +6,9 @@
 
 
 #include "Data_Capture.h"
+#include "IO_Mapping.h"
 
-// use preprocessor to use special method
+// use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
 #define DEBUG_ALL
 
 void setup() {
@@ -19,6 +20,7 @@ void setup() {
   setupWinddirectionsensor();
   setupMq135sensor();
   setupBme280sensor();
+  setupDatalogger();
 
 
 }
@@ -32,6 +34,7 @@ void loop() {
   readWinddirectionsensor();
   readMq135sensor();
   readBme280sensor();
-  delay(1000);;
+  //dataLogger();
+  delay(DELAY_TIME);
   
 }

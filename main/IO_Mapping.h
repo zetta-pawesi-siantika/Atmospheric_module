@@ -4,7 +4,9 @@
 /* Created by: Pawesi Siantika || 2022                                  */
 /* ******************************************************************** */
 
-/* */ 
+#ifndef IO_MAPPING_H
+#define IO_MAPPING_H
+/* CONST Global*/ 
 #define VOLTAGE_REF_3V3 3.3; // vcc sensor's is 3.3 V
 #define ADC_RESOLUTION 1023; // 10-bits resolution
 
@@ -15,6 +17,11 @@
   2. BME 280 -> I2C
   3. Data Logger -> SPI (D50-D4)
 */
+
+/* delay time */
+#define DELAY_TIME 1000 
+
+
 
 /* Analog pin */
 /* block starts here */
@@ -45,3 +52,5 @@
 #define NW 9  // North West
 
 /* Digital pin block ends here */
+
+#endif

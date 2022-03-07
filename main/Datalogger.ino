@@ -5,6 +5,7 @@
 //Libraries
 #include <SPI.h>
 #include <SD.h>
+//#include "Data_Capture.h"
 
 // PIN Definition
 const byte CHIP_SELECT = 53; // SS pin on Arduino MEGA BOARD (IT HAS PUT HERE. NO IN IO_MAPPING TAB)
@@ -13,7 +14,7 @@ const byte CHIP_SELECT = 53; // SS pin on Arduino MEGA BOARD (IT HAS PUT HERE. N
 String FILE_TITLE ="ATM_Data.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || CO(PPM) | Alcohol(PPM) | CO2(PPM) | NH4(PPM) | TOLUNEO(PPM) | ACETONA(PPM) || Temp(C) | pressure(hPa) | Humd(%)  || "; 
+String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || CO(PPM) | Alcohol(PPM) | CO2(PPM) | NH4(PPM) | TOLUENO(PPM) | ACETONA(PPM) || Temp(C) | pressure(hPa) | Humd(%)  || "; 
 
 File dataFile;
 
@@ -38,6 +39,7 @@ void setupDatalogger()
   }
   // template for title
   dataFile.println(TEMPLATE_TITLE);
+  Serial.println(TEMPLATE_TITLE);
 }
 
 void dataLogger()
@@ -45,13 +47,11 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  //dataString += String(gRaindata); //+ String(gUvdata)+ String(gTemt6000data) + String(gWindspeed)+ String(gWinddirection) + String(gCo)+ String(gAlcohol)+ String(gCo2)+ String(gToluneo) + String(Nh4)+ String(gAcetona);
+  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvdata)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gCo)+ "  || "+ String(gAlcohol)+ "  || "+ String(gCo2)+ "  || "+ String(gTolueno)+ "  || " + String(gNh4)+ "  || " + String(gAcetona)+ "  || ";
 
   
   dataFile.println(dataString);
   Serial.println(dataString);
   dataFile.flush();
   
-  // Take 1 measurement every 500 milliseconds
-  delay(500);
 }
