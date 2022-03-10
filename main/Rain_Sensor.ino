@@ -62,7 +62,7 @@ void rainData(){
 /* debug menu */
   #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL
     Serial.print("Rain data (Analog): ");
-    Serial.println(gRaindata); // debuging: shows value on serial monitor 
+    Serial.println(_rainAnalogread); // debuging: shows value on serial monitor 
    #endif
     
 }

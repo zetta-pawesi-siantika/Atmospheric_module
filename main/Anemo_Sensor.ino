@@ -2,12 +2,6 @@
 // it produces wind speed value
 // src: https://www.instructables.com/How-to-Use-a-Adafruit-Anemometer-Sensor-With-Ardui/
 
-// Pin Definition 
-
-
-
-
-
 // private Variables
 float _anesensorVoltage = 0; //Variable that stores the voltage (in Volts) from the anemometer being sent to the analog pin
 int _anesensorValue = 0; //Variable stores the value direct from the analog pin

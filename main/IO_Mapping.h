@@ -6,6 +6,7 @@
 
 #ifndef IO_MAPPING_H
 #define IO_MAPPING_H
+
 /* CONST Global*/ 
 #define VOLTAGE_REF_3V3 3.3; // vcc sensor's is 3.3 V
 #define ADC_RESOLUTION 1023; // 10-bits resolution
@@ -20,8 +21,6 @@
 
 /* delay time */
 #define DELAY_TIME 1000 
-
-
 
 /* Analog pin */
 /* block starts here */

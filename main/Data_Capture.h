@@ -21,7 +21,7 @@ float gNh4;
 float gAcetona;
 
 /* Rain Sensor */
-int gRaindata; 
+String gRaindata; 
 
 /* Temt6000_Sensor */
 int gTemt6000data;
