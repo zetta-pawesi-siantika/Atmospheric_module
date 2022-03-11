@@ -26,6 +26,12 @@ void setupUvsensor(){
 // src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
 void readUvsensor(){
    _readDataADCUV = analogRead(UVPIN);
+
+   #ifdef DEBUG_UV_ADC
+    Serial.print(" UV ADC Value: ");
+    Serial.println(_readDataADCUV );
+  #endif
+  
 // due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0). 
   if (_readDataADCUV <= UV_INDEX_ZERO_THRESH){
     _readDataADCUV = UV_INDEX_ZERO_THRESH;
@@ -51,9 +57,6 @@ void readUvsensor(){
     Serial.println(_voltageReadUV);
   #endif
 
-  #ifdef DEBUG_UV_ADC
-    Serial.print(" UV ADC Value: ");
-    Serial.println(_readDataADCUV );
-  #endif
+  
   
 }
