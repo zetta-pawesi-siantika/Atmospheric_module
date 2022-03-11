@@ -16,44 +16,46 @@ const float UV_INDEX_ZERO_THRESH = 87; // calculated and tested by myself
 
 
 // setup method
-void setupUvsensor(){
+void setupUvsensor() {
   pinMode(UVPIN, INPUT);
-  
+
 }
 
 
-// converting to UV Index 
+// converting to UV Index
 // src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
-void readUvsensor(){
-   _readDataADCUV = analogRead(UVPIN);
-// due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0). 
-  if (_readDataADCUV <= UV_INDEX_ZERO_THRESH){
+void readUvsensor() {
+  _readDataADCUV = analogRead(UVPIN);
+
+#ifdef DEBUG_UV_ADC
+  Serial.print(" UV ADC Value: ");
+  Serial.println(_readDataADCUV );
+#endif
+
+  // due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0).
+  if (_readDataADCUV <= UV_INDEX_ZERO_THRESH) {
     _readDataADCUV = UV_INDEX_ZERO_THRESH;
   }
-  
-  _voltageReadUV =( _readDataADCUV / ADC_RESOLUTION)* V_REF_UV;
 
- 
+  _voltageReadUV = ( _readDataADCUV / ADC_RESOLUTION) * V_REF_UV;
+
+
 
   gUvindex = (UV_SLOPE * _voltageReadUV) - UV_CONST;
 
-  
- 
+
+
   /* Serial debug */
-  #if defined DEBUG_UV || defined DEBUG_ALL
-    Serial.print("UV index: ");
-    Serial.println(gUvindex);
-  
-  #endif
+#if defined DEBUG_UV || defined DEBUG_ALL
+  Serial.print("UV index: ");
+  Serial.println(gUvindex);
 
-  #ifdef DEBUG_UV_VOLTAGE
-    Serial.print(" UV Voltage (mV): ");
-    Serial.println(_voltageReadUV);
-  #endif
+#endif
 
-  #ifdef DEBUG_UV_ADC
-    Serial.print(" UV ADC Value: ");
-    Serial.println(_readDataADCUV );
-  #endif
-  
+#ifdef DEBUG_UV_VOLTAGE
+  Serial.print(" UV Voltage (mV): ");
+  Serial.println(_voltageReadUV);
+#endif
+
+
 }
