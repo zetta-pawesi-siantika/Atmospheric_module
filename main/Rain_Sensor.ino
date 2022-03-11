@@ -5,9 +5,7 @@
 
 // variables local
 int _rainAnalogread;
-int _limit3 = 1023; // fill with tetsing value here ...
-int _limit2 = 600; // fill with tetsing value here ...
-int _limit1 = 300; //fill with tetsing value here ...
+int _threshold = 1000; // threshold to determine rainfall
 
 
 // setup method 
@@ -21,48 +19,17 @@ void setupRainsensor(){
 void rainData(){
   _rainAnalogread =  analogRead(RAINPIN);
 
-/* we have calculate the limit value for every rain condition
- *  what is the output value ?
- */
+  if ( _rainAnalogread <= _threshold){
+    gRaindata = "RAINING";
 
-  // Condition 1
-  if(_rainAnalogread <= _limit1){
-    
-    // write something here
-    // ...
-    // ...
-    gRaindata = "Heavy Rainning" ;
-  }
-  
-  // condition 2
-  if(_rainAnalogread >= _limit2 && _rainAnalogread < _limit1){
-    // write something ...
-    //...
-    //...
-    gRaindata = "Rainning" ;
-  }
-  
-
-  // condition 3
-    if(_rainAnalogread >= _limit3 && _rainAnalogread < _limit2){
-    // write something ...
-    //...
-    //...
-    gRaindata = "Light Rainning" ;
-  }
-
-  // condition 4
-    if(_rainAnalogread >= _limit3){
-    // write something ...
-    //...
-    //...
-     gRaindata = "Dry" ;
+  }else{
+    gRaindata = "NO RAINING";
   }
 
 /* debug menu */
   #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL
-    Serial.print("Rain data (Analog): ");
-    Serial.println(_rainAnalogread); // debuging: shows value on serial monitor 
+    Serial.print("Rain data : ");
+    Serial.println(gRaindata); // debuging: shows value on serial monitor 
    #endif
     
 }

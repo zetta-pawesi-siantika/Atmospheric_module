@@ -29,9 +29,7 @@
 /* TEMT6000 sensor */
 #define TEMT6000PIN  A1
 /* rain sensor */
-#define RAINPIN A3
-/* MQ 135 MQ Sensor */
-#define MQPIN A4 
+#define RAINPIN A3 
 /* Anemometer */
 #define ANEMOMETERPIN A5
 

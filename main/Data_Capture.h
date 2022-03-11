@@ -12,14 +12,6 @@ float gTemperature;
 float gPressure;
 float gHumidity;
 
-/* MQ135 */
-float gCo;
-float gAlcohol;
-float gCo2;
-float gTolueno;
-float gNh4;
-float gAcetona;
-
 /* Rain Sensor */
 String gRaindata; 
 

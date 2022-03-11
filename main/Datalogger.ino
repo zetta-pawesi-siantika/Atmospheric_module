@@ -11,10 +11,10 @@
 const byte CHIP_SELECT = 53; // SS pin on Arduino MEGA BOARD (IT HAS PUT HERE. NO IN IO_MAPPING TAB)
 
 // Global Conts 
-String FILE_TITLE ="ATM_Data.txt";
+String FILE_TITLE ="ATM_1.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || CO(PPM) | Alcohol(PPM) | CO2(PPM) | NH4(PPM) | TOLUENO(PPM) | ACETONA(PPM) || Temp(C) | pressure(hPa) | Humd(%)  || "; 
+String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) || "; 
 
 File dataFile;
 
@@ -47,11 +47,12 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvdata)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gCo)+ "  || "+ String(gAlcohol)+ "  || "+ String(gCo2)+ "  || "+ String(gTolueno)+ "  || " + String(gNh4)+ "  || " + String(gAcetona)+ "  || ";
+  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvdata)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || ";
 
-  
+  #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);
   Serial.println(dataString);
-  dataFile.flush();
+  #endif
+  dataFile.flush();\
   
 }

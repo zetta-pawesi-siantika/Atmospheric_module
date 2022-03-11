@@ -41,6 +41,7 @@ if (digitalRead(N) == LOW) {
 
 /* Serial Debug */
 #if defined DEBUG_WIND_DIRECTION || defined DEBUG_ALL
+  Serial.print("Wind direction: ");
   Serial.println(gWinddirectiondata);
  #endif
 }
