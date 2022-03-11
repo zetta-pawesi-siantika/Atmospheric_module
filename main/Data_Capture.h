@@ -23,5 +23,8 @@ float gUvindex;;
 
 /* Wind direction */
 String gWinddirectiondata;
+
+/* Curah hujan sensor */
+float gCurahhujan = 0.00;
  
 #endif
