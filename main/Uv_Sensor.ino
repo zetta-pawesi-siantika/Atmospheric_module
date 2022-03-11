@@ -2,12 +2,17 @@
 // signal voltage = 0 - 1 V
 // it produces UV Index value
 
-
-
 // variables local
-byte _uvIndex;
+
 int _readDataADCUV;
 float _voltageReadUV;
+
+// Const for local
+// it was got by calculate the datasheet value ( data is linear )
+const float UV_CONST = 0.85;
+const float UV_SLOPE = 0.01;
+const float V_REF_UV = 1000.0; // mV
+const float UV_INDEX_ZERO_THRESH = 87; // calculated and tested by myself
 
 
 // setup method
@@ -20,51 +25,35 @@ void setupUvsensor(){
 // converting to UV Index 
 // src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
 void readUvsensor(){
-  _readDataADCUV = analogRead(UVPIN);
-  _voltageReadUV = _readDataADCUV / ADC_RESOLUTION;
+   _readDataADCUV = analogRead(UVPIN);
+// due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0). 
+  if (_readDataADCUV <= UV_INDEX_ZERO_THRESH){
+    _readDataADCUV = UV_INDEX_ZERO_THRESH;
+  }
+  
+  _voltageReadUV =( _readDataADCUV / ADC_RESOLUTION)* V_REF_UV;
 
-  if(_voltageReadUV < 50){
-    gUvdata = 0;
-  }
-  else if(50 <= _voltageReadUV && _voltageReadUV < 227){
-    gUvdata = 1;
-  }
-  else if(227 <= _voltageReadUV && _voltageReadUV < 318){
-    gUvdata = 2;
-  }
-  else if(318 <= _voltageReadUV && _voltageReadUV < 408){
-    gUvdata = 3;
-  }
-  else if(408 <= _voltageReadUV && _voltageReadUV < 503){
-    gUvdata = 4;
-  }
-  else if(503 <= _voltageReadUV && _voltageReadUV < 606){
-    gUvdata = 5;
-  }
-  else if(606 <= _voltageReadUV && _voltageReadUV < 696){
-    gUvdata = 6;
-  }
-  else if(696 <= _voltageReadUV && _voltageReadUV < 795 ){
-    gUvdata = 7;
-  }
-  else if(795 <= _voltageReadUV && _voltageReadUV < 881){
-    gUvdata = 8;
-  }
-  else if(881 <= _voltageReadUV && _voltageReadUV < 976){
-    gUvdata = 9;
-  }
-  else if(976 <= _voltageReadUV && _voltageReadUV < 1079){
-    gUvdata = 10;
-  }
-  else if(1079 >= _voltageReadUV ){
-    gUvdata = 11;
-  }
+ 
 
+  gUvindex = (UV_SLOPE * _voltageReadUV) - UV_CONST;
+
+  
+ 
   /* Serial debug */
   #if defined DEBUG_UV || defined DEBUG_ALL
     Serial.print("UV index: ");
-    Serial.println(gUvdata);
-  #endif
+    Serial.println(gUvindex);
   
+  #endif
+
+  #ifdef DEBUG_UV_VOLTAGE
+    Serial.print(" UV Voltage (mV): ");
+    Serial.println(_voltageReadUV);
+  #endif
+
+  #ifdef DEBUG_UV_ADC
+    Serial.print(" UV ADC Value: ");
+    Serial.println(_readDataADCUV );
+  #endif
   
 }

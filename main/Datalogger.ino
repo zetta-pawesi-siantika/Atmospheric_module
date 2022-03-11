@@ -47,7 +47,7 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvdata)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || ";
+  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvindex)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || ";
 
   #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);

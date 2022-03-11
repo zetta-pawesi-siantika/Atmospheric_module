@@ -9,7 +9,9 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+#define DEBUG_UV
+#define DEBUG_UV_VOLTAGE
+#define DEBUG_UV_ADC
 
 void setup() {
   Serial.begin(9600); // begin serial communication
@@ -19,7 +21,7 @@ void setup() {
   setupAnemosensor();
   setupWinddirectionsensor();
   setupBme280sensor();
-  setupDatalogger();
+  //setupDatalogger();
 
 
 }
@@ -32,7 +34,7 @@ void loop() {
   readAnemosensor();
   readWinddirectionsensor();
   readBme280sensor();
-  dataLogger();
+  //dataLogger();
   delay(DELAY_TIME);
   
 }

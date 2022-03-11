@@ -19,7 +19,7 @@ String gRaindata;
 int gTemt6000data;
 
 /* Uv Sensor */
-byte gUvdata;
+float gUvindex;;
 
 /* Wind direction */
 String gWinddirectiondata;

@@ -8,8 +8,8 @@
 #define IO_MAPPING_H
 
 /* CONST Global*/ 
-#define VOLTAGE_REF_3V3 3.3; // vcc sensor's is 3.3 V
-#define ADC_RESOLUTION 1023; // 10-bits resolution
+#define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
+#define ADC_RESOLUTION 1023.0 // 10-bits resolution
 
 
 /* No needs declare Pin */
@@ -18,6 +18,8 @@
   2. BME 280 -> I2C
   3. Data Logger -> SPI (D50-D4)
 */
+
+// UV Const
 
 /* delay time */
 #define DELAY_TIME 1000 
