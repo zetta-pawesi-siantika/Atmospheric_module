@@ -8,7 +8,7 @@
 //#include "Data_Capture.h"
 
 // PIN Definition
-const byte CHIP_SELECT = 53; // SS pin on Arduino MEGA BOARD (IT HAS PUT HERE. NO IN IO_MAPPING TAB)
+
 
 // Global Conts 
 String FILE_TITLE ="ATM_1.txt";

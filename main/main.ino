@@ -9,7 +9,7 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_CURAHHUJAN
+#define DEBUG_ALL
 
 void setup() {
   Serial.begin(9600); // begin serial communication
@@ -20,7 +20,8 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupCurahhujansensor();
-  //setupDatalogger();
+  setupDatalogger();
+  setupCom();
 
 
 }
@@ -34,7 +35,8 @@ void loop() {
   readWinddirectionsensor();
   readBme280sensor();
   curahHujan();
-  //dataLogger();
+  dataLogger();
+  sendDatatoserver();
   delay(DELAY_TIME);
   
 }

@@ -19,7 +19,7 @@
   3. Data Logger -> SPI (D50-D4)
 */
 
-// UV Const
+#define CHIP_SELECT 53 // SS pin on Arduino MEGA BOARD (Micro SD Card property)
 
 /* delay time */
 #define DELAY_TIME 1000 
@@ -32,7 +32,6 @@
 #define TEMT6000PIN  A1
 /* rain sensor */
 #define RAINPIN A3 
-
 /* Volume Rain Sensor */
 #define CURAHHUJANPIN_INTERUPT 18 // interupt no 5 in Arduino MEGA (CHECK this if you want to change the board!)
 /* Anemometer */
