@@ -41,17 +41,18 @@ void curahHujan()
     flag = false; // reset flag
   }
   gCurahhujan = jumlah_tip * milimeter_per_tip;
-  if ((jumlah_tip != temp_jumlah_tip)) // Print serial setiap 1 menit atau ketika jumlah_tip berubah
-  {
-    printSerial();
-  }
-  temp_jumlah_tip = jumlah_tip;
+  printSerial();
+//  if ((jumlah_tip != temp_jumlah_tip)) // Print serial setiap 1 menit atau ketika jumlah_tip berubah
+//  {
+//    printSerial();
+//  }
+//  temp_jumlah_tip = jumlah_tip;
 }
 
 
 void printSerial()
 {
- #if defined DEBUG_CURAHHUJAN || defined DEBUG_ALL
+ #if defined DEBUG_CURAH_HUJAN || defined DEBUG_ALL
 //  Serial.print("Jumlah tip=");
 //  Serial.print(jumlah_tip);
 //  Serial.println(" kali ");

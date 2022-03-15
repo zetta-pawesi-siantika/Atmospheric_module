@@ -7,11 +7,6 @@
 #ifndef IO_MAPPING_H
 #define IO_MAPPING_H
 
-/* CONST Global*/ 
-#define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
-#define ADC_RESOLUTION 1023.0 // 10-bits resolution
-
-
 /* No needs declare Pin */
 /* many peripherals don't need require initilize Pin, there are:
   1. DS32331 -> I2C on D20 and D21
@@ -20,9 +15,6 @@
 */
 
 #define CHIP_SELECT 53 // SS pin on Arduino MEGA BOARD (Micro SD Card property)
-
-/* delay time */
-#define DELAY_TIME 1000 
 
 /* Analog pin */
 /* block starts here */
@@ -36,6 +28,8 @@
 #define CURAHHUJANPIN_INTERUPT 18 // interupt no 5 in Arduino MEGA (CHECK this if you want to change the board!)
 /* Anemometer */
 #define ANEMOMETERPIN A5
+/* Battery Level */
+#define PIN_BATTERY_LEVEL A7
 
 /* analog pin block ends here */
 

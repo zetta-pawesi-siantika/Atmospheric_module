@@ -53,6 +53,5 @@ void readBme280sensor() {
     Serial.print("Humidity = ");
     Serial.print(gHumidity);
     Serial.println(" %");
-    Serial.println();
    #endif
 }
