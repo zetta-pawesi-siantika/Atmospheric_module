@@ -25,9 +25,10 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupCurahhujansensor();
-  //setupDatalogger();
-  //setupCom();
   setupBatterylevel();
+  setupDatalogger();
+  setupCom();
+  
   
 
 
@@ -42,9 +43,9 @@ void loop() {
   readWinddirectionsensor();
   readBme280sensor();
   curahHujan();
-  //dataLogger();
-  //sendDatatoserver();
   batteryLevel();
+  dataLogger();
+  sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
   

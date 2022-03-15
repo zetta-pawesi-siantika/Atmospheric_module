@@ -5,6 +5,7 @@
 
 #define APN "m2mautotronic" // Nb-IoT telkomsel
 #define API_KEY "K4C6YNP07S4P6WXQ" // ThinkSpeak API key (keep it secret)
+#define API_KEY_BATTERY "0MUH9YF03T23GJRY" // Battery 
 
  
 void setupCom()
@@ -71,7 +72,8 @@ void sendDatatoserver()
   Serial3.println("AT+CIPSEND");//begin send data to remote server
   delay(4000);
   ShowSerialData();
-  
+
+  // Sensors channel
   String str="GET https://api.thingspeak.com/update?api_key="+String(API_KEY)+"&field1=" + String(gWindspeed) +"&field2="+String(gPressure)+"&field3=" + String(gTemperature)+"&field4=" + String(gRaindata)+"&field5=" + String(gTemt6000data)+"&field6=" + String(gUvindex)+"&field7=" + String(gWinddirectiondata)+"&field8=" + String(gCurahhujan);
   Serial.println(str);
   Serial3.println(str);//begin send data to remote server
@@ -82,7 +84,20 @@ void sendDatatoserver()
   Serial3.println((char)26);//sending
   delay(5000);//waitting for reply, important! the time is base on the condition of internet 
   Serial3.println();
- 
+
+//
+//  // Battery channel
+//  String strBat="GET https://api.thingspeak.com/update?api_key="+String(API_KEY_BATTERY)+"&field1=" + String(gReadbatteryvoltage);
+//  Serial.println(strBat);
+//  Serial3.println(strBat);//begin send data to remote server
+//  
+//  delay(4000);
+//  ShowSerialData();
+  
+  Serial3.println((char)26);//sending
+  delay(5000);//waitting for reply, important! the time is base on the condition of internet 
+  Serial3.println();
+  
   ShowSerialData();
  
   Serial3.println("AT+CIPSHUT");//close the connection
