@@ -42,13 +42,7 @@ void curahHujan()
   }
   gCurahhujan = jumlah_tip * milimeter_per_tip;
   printSerial();
-//  if ((jumlah_tip != temp_jumlah_tip)) // Print serial setiap 1 menit atau ketika jumlah_tip berubah
-//  {
-//    printSerial();
-//  }
-//  temp_jumlah_tip = jumlah_tip;
 }
-
 
 void printSerial()
 {

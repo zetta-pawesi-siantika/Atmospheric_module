@@ -14,7 +14,7 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_CURAH_HUJAN
+#define DEBUG_ALL
 
 void setup() {
   Serial.begin(9600); // begin serial communication
