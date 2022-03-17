@@ -14,8 +14,7 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_UV
-#define DEBUG_UV_VOLTAGE
+#define DEBUG_RAIN_SENSOR
 
 void setup() {
   pinMode(25, OUTPUT);

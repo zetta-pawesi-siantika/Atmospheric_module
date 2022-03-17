@@ -5,7 +5,11 @@
 
 // variables local
 int _rainAnalogread;
-int _threshold = 1000; // threshold to determine rainfall
+// threshold to determine rain's intensity
+int _thresholNorain= 920; // 920 - 1023
+int _thresholdLightrain= 800; // 800 - 919
+int _thresholdMedrain= 400; // 400 - 799
+// HEAVY RAIN 0 - 399
 
 
 // setup method 
@@ -19,13 +23,20 @@ void setupRainsensor(){
 void rainData(){
   _rainAnalogread =  analogRead(RAINPIN);
 
-  if ( _rainAnalogread <= _threshold){
-    gRaindata = "RAINING";
+  if ( _rainAnalogread < _thresholdMedrain){
+    gRaindata = "HEAVY RAIN";
 
-  }else{
-    gRaindata = "NO RAINING";
   }
-
+  else if (_rainAnalogread >= _thresholdMedrain && _rainAnalogread < _thresholdLightrain){
+    gRaindata = "MEDIUM RAINING";
+  }
+   else if (_rainAnalogread >=  _thresholdLightrain && _rainAnalogread < _thresholNorain){
+    gRaindata = "LIGHT RAINING";
+   }
+    else if (_rainAnalogread >= _thresholNorain){
+    gRaindata = "NO RAINING";
+   }
+   
 /* debug menu */
   #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL
     Serial.print("Rain data : ");
