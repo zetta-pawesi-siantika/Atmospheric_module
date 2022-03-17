@@ -14,7 +14,8 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+#define DEBUG_UV
+#define DEBUG_UV_VOLTAGE
 
 void setup() {
   pinMode(25, OUTPUT);
@@ -33,8 +34,8 @@ void setup() {
   setupBme280sensor();
   setupCurahhujansensor();
   setupBatterylevel();
-  setupDatalogger();
-  setupCom();
+//  setupDatalogger();
+//  setupCom();
  
   
   
@@ -52,11 +53,11 @@ void loop() {
   readBme280sensor();
   curahHujan();
   batteryLevel();
-  dataLogger();
-  sendDatatoserver();
+//  dataLogger();
+//  sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
   digitalWrite(25, LOW); // turn off RTC
-  delay(10000); // send low signal for 10 secs
+  //delay(10000); // send low signal for 10 secs
   
 }

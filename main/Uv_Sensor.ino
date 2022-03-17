@@ -11,7 +11,7 @@ float _voltageReadUV;
 // it was got by calculate the datasheet value ( data is linear )
 const float UV_CONST = 0.85;
 const float UV_SLOPE = 0.01;
-const float V_REF_UV = 1000.0; // mV
+const float V_REF_UV = 3300.0; // mV
 const float UV_INDEX_ZERO_THRESH = 87; // calculated and tested by myself
 
 
