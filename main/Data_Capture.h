@@ -25,7 +25,7 @@ float gUvindex;
 int gWinddirectiondata;
 
 /* Curah hujan sensor */
-String gCurahhujan;
+float gCurahhujan;
 
 /* Battery Level */
  float gReadbatteryvoltage;

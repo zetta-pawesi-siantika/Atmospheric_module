@@ -14,7 +14,7 @@
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_WIND_DIRECTION
+#define DEBUG_ALL
 
 void setup() {
   pinMode(25, OUTPUT);
