@@ -24,18 +24,18 @@ void rainData(){
   _rainAnalogread =  analogRead(RAINPIN);
 
   if ( _rainAnalogread < _thresholdMedrain){
-    gRaindata = "HEAVY RAIN";
+    gRaindata = 3; // Heavy rain
 
   }
   else if (_rainAnalogread >= _thresholdMedrain && _rainAnalogread < _thresholdLightrain){
-    gRaindata = "MEDIUM RAINING";
+    gRaindata = 2; // Medium Rain
   }
    else if (_rainAnalogread >=  _thresholdLightrain && _rainAnalogread < _thresholNorain){
-    gRaindata = "LIGHT RAINING";
+    gRaindata = 1; // Light Rain
    }
     else if (_rainAnalogread >= _thresholNorain){
-    gRaindata = "NO RAINING";
-   }
+    gRaindata = 0;// No Rain
+   } 
    
 /* debug menu */
   #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL

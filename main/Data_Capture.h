@@ -13,7 +13,7 @@ float gPressure;
 float gHumidity;
 
 /* Rain Sensor */
-String gRaindata; 
+int gRaindata; 
 
 /* Temt6000_Sensor */
 int gTemt6000data;

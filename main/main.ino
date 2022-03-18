@@ -34,7 +34,7 @@ void setup() {
   setupCurahhujansensor();
   setupBatterylevel();
 //  setupDatalogger();
-//  setupCom();
+  setupCom();
  
   
   
@@ -53,10 +53,10 @@ void loop() {
   curahHujan();
   batteryLevel();
 //  dataLogger();
-//  sendDatatoserver();
+  sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
   digitalWrite(25, LOW); // turn off RTC
-  //delay(10000); // send low signal for 10 secs
+  delay(2000); // send low signal for 10 secs
   
 }
