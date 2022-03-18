@@ -15,33 +15,34 @@ void setupWinddirectionsensor(){
 
 void readWinddirectionsensor(){
 if (digitalRead(N) == LOW) {
-    gWinddirectiondata = "NORTH";
+    gWinddirectiondata = 0; // 0 deg = NORTH
   }
   else if (digitalRead(NE) == LOW) {
-    gWinddirectiondata = "NORTH EAST";
+    gWinddirectiondata = 45; // NORTH EAST
   }
   else if (digitalRead(E) == LOW) {
-    gWinddirectiondata = "EAST";
+    gWinddirectiondata = 90; // EAST
   }
   else if (digitalRead(SE) == LOW) {
-    gWinddirectiondata = "SOUTH EAST";
+    gWinddirectiondata = 135; // SOUTH EAST
   }
   else if (digitalRead(S) == LOW) {
-    gWinddirectiondata = "SOUTH";
+    gWinddirectiondata = 180; // SOUTH
   }
   else if (digitalRead(SW) == LOW) {
-    gWinddirectiondata = "SOUTH WEST";
+    gWinddirectiondata = 225; // SOUTH WEST
   }
   else if (digitalRead(W) == LOW) {
-    gWinddirectiondata = "WEST";
+    gWinddirectiondata = 270; // WEST
   }
   else if (digitalRead(NW) == LOW) {
-    gWinddirectiondata = "NORTH WEST";
+    gWinddirectiondata = 315; // NORTH WEST
   }
 
 /* Serial Debug */
 #if defined DEBUG_WIND_DIRECTION || defined DEBUG_ALL
   Serial.print("Wind direction: ");
-  Serial.println(gWinddirectiondata);
+  Serial.print(gWinddirectiondata);
+  Serial.println(" \xc2\xb0");
  #endif
 }

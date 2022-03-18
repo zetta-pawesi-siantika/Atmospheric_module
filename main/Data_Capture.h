@@ -22,10 +22,10 @@ int gTemt6000data;
 float gUvindex;
 
 /* Wind direction */
-String gWinddirectiondata;
+int gWinddirectiondata;
 
 /* Curah hujan sensor */
-float gCurahhujan = 0.00;
+String gCurahhujan;
 
 /* Battery Level */
  float gReadbatteryvoltage;
