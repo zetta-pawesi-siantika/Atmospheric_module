@@ -1,5 +1,4 @@
 /* UV sensor properties */
-// signal voltage = 0 - 1 V
 // it produces UV Index value
 
 // variables local
@@ -24,18 +23,7 @@ void setupUvsensor() {
 
 // converting to UV Index
 // src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
-<<<<<<< HEAD
-void readUvsensor() {
-  _readDataADCUV = analogRead(UVPIN);
 
-#ifdef DEBUG_UV_ADC
-  Serial.print(" UV ADC Value: ");
-  Serial.println(_readDataADCUV );
-#endif
-
-  // due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0).
-  if (_readDataADCUV <= UV_INDEX_ZERO_THRESH) {
-=======
 void readUvsensor(){
    _readDataADCUV = analogRead(UVPIN);
 
@@ -46,7 +34,6 @@ void readUvsensor(){
   
 // due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0). 
   if (_readDataADCUV <= UV_INDEX_ZERO_THRESH){
->>>>>>> master
     _readDataADCUV = UV_INDEX_ZERO_THRESH;
   }
 
@@ -59,20 +46,6 @@ void readUvsensor(){
 
 
   /* Serial debug */
-<<<<<<< HEAD
-#if defined DEBUG_UV || defined DEBUG_ALL
-  Serial.print("UV index: ");
-  Serial.println(gUvindex);
-
-#endif
-
-#ifdef DEBUG_UV_VOLTAGE
-  Serial.print(" UV Voltage (mV): ");
-  Serial.println(_voltageReadUV);
-#endif
-
-
-=======
   #if defined DEBUG_UV || defined DEBUG_ALL
     Serial.print("UV index: ");
     Serial.println(gUvindex);
@@ -84,7 +57,4 @@ void readUvsensor(){
     Serial.println(_voltageReadUV);
   #endif
 
-  
-  
->>>>>>> master
 }
