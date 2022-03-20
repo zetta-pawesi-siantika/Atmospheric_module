@@ -13,15 +13,21 @@ float gPressure;
 float gHumidity;
 
 /* Rain Sensor */
-String gRaindata; 
+int gRaindata; 
 
 /* Temt6000_Sensor */
 int gTemt6000data;
 
 /* Uv Sensor */
-float gUvindex;;
+float gUvindex;
 
 /* Wind direction */
-String gWinddirectiondata;
+int gWinddirectiondata;
+
+/* Curah hujan sensor */
+float gCurahhujan;
+
+/* Battery Level */
+ float gReadbatteryvoltage;
  
 #endif

@@ -17,7 +17,7 @@ void readTemt6000sensor(){
   gTemt6000data = analogRead(TEMT6000PIN)* CONST_LIGHT; // light intensity (%)
 
   #if defined DEBUG_TEMT6000 || defined DEBUG_ALL
-    Serial.print("TEMT6000 data / light intensity: ");
+    Serial.print("light intensity: ");
     Serial.print(gTemt6000data); // debuging: shows value on serial monitor 
     Serial.println(" %");
    #endif

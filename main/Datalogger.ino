@@ -8,13 +8,13 @@
 //#include "Data_Capture.h"
 
 // PIN Definition
-const byte CHIP_SELECT = 53; // SS pin on Arduino MEGA BOARD (IT HAS PUT HERE. NO IN IO_MAPPING TAB)
+
 
 // Global Conts 
 String FILE_TITLE ="ATM_1.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) || "; 
+String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) | Battery Level|| "; 
 
 File dataFile;
 
@@ -47,7 +47,7 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvindex)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || ";
+  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvindex)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || " +String(gReadbatteryvoltage)+ "||" ;
 
   #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);
