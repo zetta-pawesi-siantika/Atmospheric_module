@@ -33,7 +33,7 @@ void setup() {
   setupBme280sensor();
   setupCurahhujansensor();
   setupBatterylevel();
-//  setupDatalogger();
+  setupDatalogger();
   setupCom();
  
   
@@ -52,7 +52,7 @@ void loop() {
   readBme280sensor();
   curahHujan();
   batteryLevel();
-//  dataLogger();
+  dataLogger();
   sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
