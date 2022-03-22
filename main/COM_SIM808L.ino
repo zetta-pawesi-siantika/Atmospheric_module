@@ -10,6 +10,11 @@
 
 void setupCom()
 {
+  pinMode(24, OUTPUT);
+  digitalWrite(25, HIGH); // enable RTC module
+  digitalWrite(24, HIGH); // booting up SIM808L
+  delay(2000); // giving signal to SIM808L for 2 minutes
+  digitalWrite(24, LOW); 
   Serial3.begin(9600);               // the GPRS baud rate
   delay(1000);
 }

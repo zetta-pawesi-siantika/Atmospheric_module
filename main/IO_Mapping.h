@@ -13,7 +13,7 @@
   2. BME 280 -> I2C
   3. Data Logger -> SPI (D50-D4)
 */
-
+#define PIN_TRIGGER_RTC 25 // RTC trigger
 #define CHIP_SELECT 53 // SS pin on Arduino MEGA BOARD (Micro SD Card property)
 
 /* Analog pin */

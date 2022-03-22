@@ -18,14 +18,11 @@
 #define DEBUG_ALL
 
 void setup() {
-  pinMode(25, OUTPUT);
-  pinMode(24, OUTPUT);
-  digitalWrite(25, HIGH); // enable RTC module
-  digitalWrite(24, HIGH); // booting up SIM808L
-  delay(2000); // giving signal to SIM808L for 2 minutes
-  digitalWrite(24, LOW); // booting up SIM808L
+  pinMode(PIN_TRIGGER_RTC, OUTPUT);
+  digitalWrite(PIN_TRIGGER_RTC,LOW); // enable RTC module
   
   Serial.begin(9600); // begin serial communication
+  setupCom();
   setupRainsensor();
   setupUvsensor();
   setupTemt6000sensor();
@@ -35,11 +32,9 @@ void setup() {
   setupCurahhujansensor();
   setupBatterylevel();
   setupDatalogger();
-  setupCom();
 }
 
 void loop() {
-
   rainData();
   readUvsensor();
   readTemt6000sensor();
@@ -49,10 +44,10 @@ void loop() {
   curahHujan();
   batteryLevel();
   dataLogger();
-  sendDatatoserver();
+  //sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
-  digitalWrite(25, LOW); // turn off RTC
+  digitalWrite(25, HIGH); // turn off RTC
   delay(2000); // send low signal for 10 secs
   
 }
