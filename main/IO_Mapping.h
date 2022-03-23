@@ -24,8 +24,6 @@
 #define TEMT6000PIN  A1
 /* rain sensor */
 #define RAINPIN A3 
-/* Volume Rain Sensor */
-#define CURAHHUJANPIN_INTERUPT 18 // interupt no 5 in Arduino MEGA (CHECK this if you want to change the board!)
 /* Anemometer */
 #define ANEMOMETERPIN A5
 /* Battery Level */

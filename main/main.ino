@@ -20,7 +20,8 @@ byte i = 0;
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+#define DEBUG_UV
+#define DEBUG_UV_VOLTAGE
 
 void setup() {
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
@@ -43,13 +44,12 @@ void setup() {
   setupAnemosensor();
   setupWinddirectionsensor();
   setupBme280sensor();
-  setupCurahhujansensor();
   setupBatterylevel();
   setupDatalogger();
 }
 
 void loop() {
-
+#ifdef SERIAL_COM_AVAILABLE
   while (Serial1.available() == 0) {
     // do nothing when data isn't comming
   }
@@ -66,14 +66,15 @@ void loop() {
   }
   // convert data in string data type
   gWaterfallrate_str = String(gRainfallrate_char);
-
-  Serial.println(gWaterfallrate_str);
+  Serial.print("Water fall rate : ");
+  Serial.print(gWaterfallrate_str);
+  Serial.print(" mm");
   
   // turn on led for 5 secs. ending read data
   digitalWrite(LED, HIGH);
   delay(5000);
   digitalWrite(LED, LOW);
-
+#endif
 
 
   rainData();
@@ -82,9 +83,8 @@ void loop() {
   readAnemosensor();
   readWinddirectionsensor();
   readBme280sensor();
-  curahHujan();
   batteryLevel();
-  dataLogger();
+ // dataLogger();
   //sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);

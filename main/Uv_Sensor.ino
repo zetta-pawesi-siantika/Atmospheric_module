@@ -12,6 +12,7 @@ const float UV_CONST = 0.85;
 const float UV_SLOPE = 0.01;
 const float V_REF_UV = 3300.0; // mV
 const float UV_INDEX_ZERO_THRESH = 87; // calculated and tested by myself
+const byte ADC_CALIBRATION_NO_LINEAR = 27;
 
 
 // setup method
@@ -34,7 +35,7 @@ void readUvsensor(){
   
 // due to imperfect linearity of sensor, we need make special treatment for 0 - 50 mV which 87 in ADC, sensor input ( index 0). 
   if (_readDataADCUV <= UV_INDEX_ZERO_THRESH){
-    _readDataADCUV = UV_INDEX_ZERO_THRESH;
+    _readDataADCUV = ADC_CALIBRATION_NO_LINEAR;
   }
 
   _voltageReadUV = ( _readDataADCUV / ADC_RESOLUTION) * V_REF_UV;

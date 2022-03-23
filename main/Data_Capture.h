@@ -24,8 +24,7 @@ float gUvindex;
 /* Wind direction */
 int gWinddirectiondata;
 
-/* Curah hujan sensor */
-float gCurahhujan;
+/* water fall rate sensor */
 String gWaterfallrate_str;
 
 /* Battery Level */

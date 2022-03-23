@@ -14,7 +14,7 @@
 String FILE_TITLE ="ATM_1.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) | Battery Level | Waterfall Rate (mm) ||"; 
+String TEMPLATE_TITLE =" || Rain Intens || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) | Battery Level(V) | Waterfall Rate (mm) ||"; 
 
 File dataFile;
 
