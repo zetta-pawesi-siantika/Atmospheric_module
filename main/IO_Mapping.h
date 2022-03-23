@@ -15,7 +15,8 @@
 */
 #define PIN_TRIGGER_RTC 25 // RTC trigger
 #define CHIP_SELECT 53 // SS pin on Arduino MEGA BOARD (Micro SD Card property)
-
+#define BOOTING_SIM808 24
+#define LED 27 // indicator
 /* Analog pin */
 /* block starts here */
  /* UV sensor */

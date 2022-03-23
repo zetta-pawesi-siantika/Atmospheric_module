@@ -10,7 +10,7 @@
 #define ADC_RESOLUTION 1023.0 // 10-bits resolution
 #define DELAY_TIME 1000
 #define BYTE_LENGTH 10
-#define LED 27
+
 
 char gRainfallrate_char[BYTE_LENGTH];
 byte i = 0;
@@ -20,8 +20,8 @@ byte i = 0;
 #include "IO_Mapping.h"
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_UV
-#define DEBUG_UV_VOLTAGE
+#define DEBUG_ALL
+#define SERIAL_COM_AVAILABLE
 
 void setup() {
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
@@ -84,8 +84,8 @@ void loop() {
   readWinddirectionsensor();
   readBme280sensor();
   batteryLevel();
- // dataLogger();
-  //sendDatatoserver();
+  dataLogger();
+  sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
   Serial1.write("DONE", 10);

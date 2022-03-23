@@ -10,11 +10,10 @@
 
 void setupCom()
 {
-  pinMode(24, OUTPUT);
-  digitalWrite(25, HIGH); // enable RTC module
-  digitalWrite(24, HIGH); // booting up SIM808L
+  pinMode(BOOTING_SIM808, OUTPUT);
+  digitalWrite(BOOTING_SIM808, HIGH); // booting up SIM808L
   delay(2000); // giving signal to SIM808L for 2 minutes
-  digitalWrite(24, LOW); 
+  digitalWrite(BOOTING_SIM808, LOW); 
   Serial3.begin(9600);               // the GPRS baud rate
   delay(1000);
 }
@@ -104,7 +103,7 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
   //  // Battery channel
-  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage);
+  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage)+ "&field2=" + String(gHumidity);
   Serial.println(strBat);
   Serial3.println(strBat);//begin send data to remote server
 
