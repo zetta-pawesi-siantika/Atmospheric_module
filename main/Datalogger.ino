@@ -14,7 +14,7 @@
 String FILE_TITLE ="ATM_1.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) | Battery Level|| "; 
+String TEMPLATE_TITLE =" || Rain || Uv Index || Light Intens(%) || Wind spd(m/s) ||  Wind Dir || Temp(C) | pressure(hPa) | Humd(%) | Battery Level | Waterfall Rate (mm) ||"; 
 
 File dataFile;
 
@@ -47,7 +47,7 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvindex)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || " +String(gReadbatteryvoltage)+ "||" ;
+  dataString = dataString + String(gRaindata)+ "  ||  " + String(gUvindex)+ "  || " + String(gTemt6000data)+ "  || " + String(gWindspeed)+ "  || " + String(gWinddirectiondata)+ "  || " + String(gTemperature)+ "  || "+ String(gPressure)+ "  || "+ String(gHumidity)+ "  || " +String(gReadbatteryvoltage)+ "||" +String(gWaterfallrate_str)+ "||" ;
 
   #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);

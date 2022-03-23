@@ -65,7 +65,7 @@ void loop() {
 
   }
   // convert data in string data type
-  String gWaterfallrate_str = String(gRainfallrate_char);
+  gWaterfallrate_str = String(gRainfallrate_char);
 
   Serial.println(gWaterfallrate_str);
   
@@ -84,7 +84,7 @@ void loop() {
   readBme280sensor();
   curahHujan();
   batteryLevel();
-  //dataLogger();
+  dataLogger();
   //sendDatatoserver();
   Serial.println();
   delay(DELAY_TIME);
