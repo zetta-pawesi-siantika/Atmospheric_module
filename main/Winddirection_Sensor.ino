@@ -43,6 +43,6 @@ if (digitalRead(N) == LOW) {
 #if defined DEBUG_WIND_DIRECTION || defined DEBUG_ALL
   Serial.print("Wind direction: ");
   Serial.print(gWinddirectiondata);
-  Serial.println(" \xc2\xb0");
+  Serial.println(" \xc2\xb0"); // degree symbol in char
  #endif
 }

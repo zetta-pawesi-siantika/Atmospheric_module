@@ -21,7 +21,9 @@ byte i = 0;
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
 #define DEBUG_ALL
-#define SERIAL_COM_AVAILABLE
+
+
+#define SERIAL_COM_AVAILABLE // it has declare this 
 
 void setup() {
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
@@ -72,10 +74,9 @@ void loop() {
   
   // turn on led for 5 secs. ending read data
   digitalWrite(LED, HIGH);
-  delay(5000);
+  delay(1000);
   digitalWrite(LED, LOW);
 #endif
-
 
   rainData();
   readUvsensor();
@@ -91,5 +92,5 @@ void loop() {
   Serial1.write("DONE", 10);
   digitalWrite(25, HIGH); // turn off RTC
   delay(2000); // send low signal for 2 secs
-  //  while(1){}
+ 
 }
