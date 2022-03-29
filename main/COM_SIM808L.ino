@@ -78,7 +78,7 @@ void sendDatatoserver()
   ShowSerialData();
 
   // Sensors channel
-  String str = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY) + "&field1=" + String(gWindspeed) + "&field2=" + String(gPressure) + "&field3=" + String(gTemperature) + "&field4=" + String(gRaindata) + "&field5=" + String(gTemt6000data) + "&field6=" + String(gUvindex) + "&field7=" + String(gWinddirectiondata) + "&field8=" + String(gWaterfallrate_str);
+  String str = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY) + "&field1=" + String(gWindspeed) + "&field2=" + String(gPressure) + "&field3=" + String(gTemperature) + "&field4=" + String(gRaindata) + "&field5=" + String(gTemt6000data) + "&field6=" + String(gUvindex) + "&field7=" + String(gWinddirectiondata) + "&field8=" + String(gHumidity);
   Serial.println(str);
   Serial3.println(str);//begin send data to remote server
 
@@ -103,7 +103,7 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
   //  // Battery channel
-  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage)+ "&field2=" + String(gHumidity);
+  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage);
   Serial.println(strBat);
   Serial3.println(strBat);//begin send data to remote server
 
