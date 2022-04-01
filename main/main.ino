@@ -16,9 +16,6 @@
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
 #define DEBUG_ALL
 
-
-
-
 void setup() {
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
   digitalWrite(PIN_TRIGGER_RTC, LOW); // enable RTC module
@@ -31,6 +28,7 @@ void setup() {
   setupAnemosensor();
   setupWinddirectionsensor();
   setupBme280sensor();
+  setupBH1750();
   setupBatterylevel();
    setupDatalogger();
 }
@@ -43,12 +41,13 @@ void loop() {
   readAnemosensor();
   readWinddirectionsensor();
   readBme280sensor();
+  readBH1750sensor();
   batteryLevel();
   dataLogger();
   sendDatatoserver();
+  
   Serial.println();
   delay(DELAY_TIME);
-  Serial1.write("DONE", 10);
   digitalWrite(25, HIGH); // turn off RTC
   delay(2000); // send low signal for 2 secs
  
