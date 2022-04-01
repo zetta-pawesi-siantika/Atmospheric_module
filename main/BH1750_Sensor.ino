@@ -25,6 +25,12 @@
 #include <BH1750.h>
 #include <Wire.h>
 
+// Constant
+const float IRRADIANCE_CONST = 0.0079;
+const float PAR_CONST = 0.004764;
+const float PAR_SLOPE = 0.01770;
+
+
 BH1750 lightMeter;
 
 void setupBH1750() {
@@ -34,21 +40,21 @@ void setupBH1750() {
 }
 
 void readBH1750sensor() {
-  float lux = lightMeter.readLightLevel();
-  float irr = (lux * 0.0079);
-  float PAR = 0.01770*lux + 0.004764;
+  gLux = lightMeter.readLightLevel();
+  gIrradiance = gLux * IRRADIANCE_CONST; // conversion
+  gPAR = PAR_SLOPE * gLux + PAR_CONST; // conversion
 
 #if defined DEBUG_BH1750 || defined DEBUG_ALL
   Serial.print("Light: ");
-  Serial.print(lux);
+  Serial.print(gLux);
   Serial.println(" lx");
   
   Serial.print("Irradiance: ");
-  Serial.print(irr);
+  Serial.print(gIrradiance);
   Serial.println(" W/m2");
 
   Serial.print("PAR: ");
-  Serial.print(PAR);
+  Serial.print(gPAR);
   Serial.println("µmoles/m2/s");
 
  #endif

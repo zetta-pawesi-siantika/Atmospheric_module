@@ -24,7 +24,6 @@ void setup() {
   setupCom();
   setupRainsensor();
   setupUvsensor();
-  setupTemt6000sensor();
   setupAnemosensor();
   setupWinddirectionsensor();
   setupBme280sensor();
@@ -37,14 +36,13 @@ void loop() {
 
   rainData();
   readUvsensor();
-  readTemt6000sensor();
   readAnemosensor();
   readWinddirectionsensor();
   readBme280sensor();
   readBH1750sensor();
   batteryLevel();
-  dataLogger();
-  sendDatatoserver();
+//  dataLogger();
+//  sendDatatoserver();
   
   Serial.println();
   delay(DELAY_TIME);

@@ -15,8 +15,10 @@ float gHumidity;
 /* Rain Sensor */
 int gRaindata; 
 
-/* Temt6000_Sensor */
-int gTemt6000data;
+/* BH1750 */
+float gLux;
+float gIrradiance;
+float gPAR;
 
 /* Uv Sensor */
 float gUvindex;
