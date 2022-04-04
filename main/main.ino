@@ -18,11 +18,12 @@
 
 void setup() {
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
-  digitalWrite(PIN_TRIGGER_RTC, LOW); // disaable RTC module
-  
+  digitalWrite(PIN_TRIGGER_RTC, LOW); // disable RTC module
 
+  
   Serial.begin(9600); // begin serial communication
-//  setupCom();
+  //  setupCom();
+  setupRTCDS3231();
   setupRainsensor();
   Serial.println("Rain success");
   setupUvsensor();
@@ -31,14 +32,14 @@ void setup() {
   Serial.println("Anemo success");
   setupWinddirectionsensor();
   Serial.println("Wind Direction success");
-//  setupBme280sensor();
+    setupBme280sensor();
   Serial.println("BME success");
   setupBH1750();
   Serial.println("BH1750 success");
   setupBatterylevel();
   Serial.println("Battery success");
-//   setupDatalogger();
-Serial.println("Data_logger success");
+  //   setupDatalogger();
+  Serial.println("Data_logger success");
 }
 
 void loop() {
@@ -47,15 +48,16 @@ void loop() {
   readUvsensor();
   readAnemosensor();
   readWinddirectionsensor();
-//  readBme280sensor();
+    readBme280sensor();
   readBH1750sensor();
   batteryLevel();
-//  dataLogger();
-//  sendDatatoserver();
-  
+  printTimennow();
+  //  dataLogger();
+  //  sendDatatoserver();
+
   Serial.println();
   delay(DELAY_TIME);
   digitalWrite(25, HIGH); // turn off RTC
   delay(2000); // send low signal for 2 secs
- 
+
 }
