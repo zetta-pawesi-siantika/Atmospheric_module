@@ -14,7 +14,7 @@
 String FILE_TITLE ="ATM_1.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" | Rain Intens | Uv Index | Light Intens(%) | Wind spd(m/s) |  Wind Dir | Temp(C) | pressure(hPa) | Humd(%) | Battery Level(V) |"; 
+String TEMPLATE_TITLE =" | Rain Intens | Uv Index | Lux | Solar Irradiance (W/m2) | PAR (µmoles/m2/s) | Wind spd(m/s) |  Wind Dir | Temp(C) | pressure(hPa) | Humd(%) | Battery Level(V) |"; 
 
 File dataFile;
 
@@ -47,7 +47,7 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  dataString = dataString + String(gRaindata)+ "  |  " + String(gUvindex)+ "  | " + String(gLux)+ "  | " + String(gWindspeed)+ "  | " + String(gWinddirectiondata)+ "  | " + String(gTemperature)+ "  | "+ String(gPressure)+ "  | "+ String(gHumidity)+ "  | " +String(gReadbatteryvoltage)+ "|"; 
+  dataString = dataString + String(gRaindata)+ "  |  " + String(gUvindex)+ "  | " + String(gLux)+ "  | "+ "  | " + String(gIrradiance)+ "  | "+ "  | " + String(gPAR)+ "  | " + String(gWindspeed)+ "  | " + String(gWinddirectiondata)+ "  | " + String(gTemperature)+ "  | "+ String(gPressure)+ "  | "+ String(gHumidity)+ "  | " +String(gReadbatteryvoltage)+ "|"; 
   #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);
   Serial.println(dataString);

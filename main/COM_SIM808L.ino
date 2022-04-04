@@ -4,8 +4,8 @@
 #include <String.h>
 
 #define APN "m2mautotronic" // Nb-IoT telkomsel
-#define API_KEY "K4C6YNP07S4P6WXQ" // ThinkSpeak API key (keep it secret)
-#define API_KEY_BATTERY "0MUH9YF03T23GJRY" // Battery 
+#define API_KEY "GX42QNGG2Z7JHL19" // ThinkSpeak API key (keep it secret)
+#define API_KEY_BATTERY "HOUJ7UB20NJDSRCK" // Battery + Light parameter
 
 
 void setupCom()
@@ -103,7 +103,7 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
   //  // Battery channel
-  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage);
+  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage)+ "&field2=" + String(gIrradiance)+ "&field3=" + String(gPAR);
   Serial.println(strBat);
   Serial3.println(strBat);//begin send data to remote server
 
