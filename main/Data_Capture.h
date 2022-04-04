@@ -31,5 +31,10 @@ String gWaterfallrate_str;
 
 /* Battery Level */
  float gReadbatteryvoltage;
+
+ /* Time DS3231 */
+ String dayOftheWeek;
+ String dateNow; 
+ String timeNow;
  
 #endif

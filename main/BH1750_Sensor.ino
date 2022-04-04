@@ -23,7 +23,6 @@
 */
 
 #include <BH1750.h>
-#include <Wire.h>
 
 // Constant
 const float IRRADIANCE_CONST = 0.0079;
@@ -35,7 +34,6 @@ BH1750 lightMeter;
 
 void setupBH1750() {
   // Initialize the I2C bus (BH1750 library doesn't do this automatically)
-  Wire.begin();
   lightMeter.begin();
 }
 

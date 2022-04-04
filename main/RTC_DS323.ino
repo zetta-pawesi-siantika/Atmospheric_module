@@ -6,9 +6,9 @@ void setupRTCDS3231(){
 }
 
 void printTimennow(){
-  static String dayOftheWeek = rtc.getDOWStr();
-  static String dateNow = rtc.getDateStr();
-  static String timeNow = rtc.getTimeStr();
+  dayOftheWeek = rtc.getDOWStr();
+  dateNow = rtc.getDateStr();
+  timeNow = rtc.getTimeStr();
   
   #if defined DEBUG_RTCDS3231 || defined DEBUG_ALL
     // Send Day-of-Week

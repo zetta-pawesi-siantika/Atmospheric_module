@@ -27,7 +27,7 @@ void setupDatalogger()
   
   if (!SD.begin(CHIP_SELECT)) {
     Serial.println("Card failed, or not present");
-    while (1) ;
+   
   }
   Serial.println("card initialized.");
   
@@ -35,7 +35,7 @@ void setupDatalogger()
   dataFile = SD.open(FILE_TITLE, FILE_WRITE);
   if (! dataFile) {
     Serial.println("error opening datalog.txt");
-    while (1) ;
+  
   }
   // template for title
   dataFile.println(TEMPLATE_TITLE);
@@ -46,6 +46,14 @@ void dataLogger()
 {
   // make a string for assembling the data to log:
   String dataString = "";
+
+  // added day/month/year/Time
+  dataFile.print(dayOftheWeek);
+  dataFile.print(" ");
+  dataFile.print(dateNow);
+  dataFile.print(" ");
+  dataFile.println(timeNow);
+  
 
   dataString = dataString + String(gRaindata)+ "  |  " + String(gUvindex)+ "  | " + String(gLux)+ "  | "+ "  | " + String(gIrradiance)+ "  | "+ "  | " + String(gPAR)+ "  | " + String(gWindspeed)+ "  | " + String(gWinddirectiondata)+ "  | " + String(gTemperature)+ "  | "+ String(gPressure)+ "  | "+ String(gHumidity)+ "  | " +String(gReadbatteryvoltage)+ "|"; 
   #if defined LOGGER || defined DEBUG_ALL
