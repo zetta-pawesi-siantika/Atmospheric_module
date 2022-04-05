@@ -15,7 +15,7 @@
 #include <Wire.h>
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+#define DEBUG_UV_ADC
 
 void setup() {
   Wire.begin(10);
@@ -25,25 +25,15 @@ void setup() {
 
   Serial.begin(9600); // begin serial communication
   setupCom();
-  Serial.println("Com");
   setupRTCDS3231();
-    Serial.println("1");
   setupRainsensor();
-    Serial.println("1");
   setupUvsensor();
-    Serial.println("1");
   setupAnemosensor();
-    Serial.println("1");
   setupWinddirectionsensor();
-    Serial.println("1");
-//  setupBme280sensor();
-//     Serial.println("280");
+  setupBme280sensor();
   setupBH1750();
-     Serial.println("BH");
   setupBatterylevel();
-     Serial.println("Bat");
   setupDatalogger();
-     Serial.println("data");
 }
 
 void loop() {
@@ -52,12 +42,12 @@ void loop() {
   readUvsensor();
   readAnemosensor();
   readWinddirectionsensor();
-//  readBme280sensor();
+  readBme280sensor();
   readBH1750sensor();
   batteryLevel();
   printTimennow();
-    dataLogger();
-    sendDatatoserver();
+//  dataLogger();
+//  sendDatatoserver();
 
   Serial.println();
   delay(DELAY_TIME);
