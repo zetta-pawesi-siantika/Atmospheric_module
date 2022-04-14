@@ -21,8 +21,6 @@
 /* block starts here */
  /* UV sensor */
 #define UVPIN A0
-/* TEMT6000 sensor */
-#define TEMT6000PIN  A1
 /* rain sensor */
 #define RAINPIN A3 
 /* Anemometer */

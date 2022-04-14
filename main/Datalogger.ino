@@ -55,7 +55,7 @@ void dataLogger()
   dataFile.println(timeNow);
   
 
-  dataString = dataString + String(gRaindata)+ "  |  " + String(gUvindex)+ "  | " + String(gLux)+ "  | "+ "  | " + String(gIrradiance)+ "  | "+ "  | " + String(gPAR)+ "  | " + String(gWindspeed)+ "  | " + String(gWinddirectiondata)+ "  | " + String(gTemperature)+ "  | "+ String(gPressure)+ "  | "+ String(gHumidity)+ "  | " +String(gReadbatteryvoltage)+ "|"; 
+  dataString = dataString + String(gRaindata)+ "  ,  " + String(gUvindex)+ "  , " + String(gLux)+ "  , "+ "  , " + String(gIrradiance)+ "  , "+ "  , " + String(gPAR)+ "  , " + String(gWindspeed)+ "  , " + String(gWinddirectiondata)+ "  , " + String(gTemperature)+ "  , "+ String(gPressure)+ "  , "+ String(gHumidity)+ "  , " +String(gReadbatteryvoltage)+ ","; 
   #if defined LOGGER || defined DEBUG_ALL
   dataFile.println(dataString);
   Serial.println(dataString);

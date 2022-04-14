@@ -15,13 +15,12 @@
 #include <Wire.h>
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_UV_ADC
+#define DEBUG_ALL
 
 void setup() {
   Wire.begin(10);
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
   digitalWrite(PIN_TRIGGER_RTC, LOW); // disable RTC module
-
 
   Serial.begin(9600); // begin serial communication
   setupCom();
@@ -46,12 +45,12 @@ void loop() {
   readBH1750sensor();
   batteryLevel();
   printTimennow();
-//  dataLogger();
-//  sendDatatoserver();
+  dataLogger();
+  sendDatatoserver();
 
   Serial.println();
   delay(DELAY_TIME);
   digitalWrite(25, HIGH); // turn off RTC
-  delay(2000); // send low signal for 2 secs
+  delay(2000); // send HIGH signal for 2 secs
 
 }

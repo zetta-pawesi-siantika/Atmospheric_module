@@ -15,7 +15,7 @@ void setupWinddirectionsensor(){
 
 void readWinddirectionsensor(){
 if (digitalRead(N) == LOW) {
-    gWinddirectiondata = 90; // 0 deg = NORTH
+    gWinddirectiondata = 90; // = NORTH
   }
   else if (digitalRead(NE) == LOW) {
     gWinddirectiondata = 45; // NORTH EAST
