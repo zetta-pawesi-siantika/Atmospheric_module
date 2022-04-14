@@ -15,28 +15,28 @@ void setupWinddirectionsensor(){
 
 void readWinddirectionsensor(){
 if (digitalRead(N) == LOW) {
-    gWinddirectiondata = 90; // = NORTH
+    gWinddirectiondata = 0; // = NORTH
   }
   else if (digitalRead(NE) == LOW) {
     gWinddirectiondata = 45; // NORTH EAST
   }
   else if (digitalRead(E) == LOW) {
-    gWinddirectiondata = 0; // EAST
+    gWinddirectiondata = 90; // EAST
   }
   else if (digitalRead(SE) == LOW) {
-    gWinddirectiondata = 315; // SOUTH EAST
+    gWinddirectiondata = 135; // SOUTH EAST
   }
   else if (digitalRead(S) == LOW) {
-    gWinddirectiondata = 270; // SOUTH
+    gWinddirectiondata = 180; // SOUTH
   }
   else if (digitalRead(SW) == LOW) {
     gWinddirectiondata = 225; // SOUTH WEST
   }
   else if (digitalRead(W) == LOW) {
-    gWinddirectiondata = 180; // WEST
+    gWinddirectiondata = 270; // WEST
   }
   else if (digitalRead(NW) == LOW) {
-    gWinddirectiondata = 135; // NORTH WEST
+    gWinddirectiondata = 315; // NORTH WEST
   }
 
 /* Serial Debug */
