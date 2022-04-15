@@ -11,10 +11,10 @@
 
 
 // Global Conts 
-String FILE_TITLE ="ATM_1.txt";
+String FILE_TITLE ="ATM_TEST.txt";
 
 // Local Conts 
-String TEMPLATE_TITLE =" | Rain Intens | Uv Index | Lux | Solar Irradiance (W/m2) | PAR (µmoles/m2/s) | Wind spd(m/s) |  Wind Dir | Temp(C) | pressure(hPa) | Humd(%) | Battery Level(V) |"; 
+String TEMPLATE_TITLE =" Date,Time Stamp,Rain Intens,Uv Index,Lux,Solar Irradiance(W/m2),PAR(µmoles/m2/s),Wind spd(m/s),Wind Direction,Temp(C),pressure(hPa),Humd(%)"; 
 
 File dataFile;
 
@@ -34,7 +34,7 @@ void setupDatalogger()
 
   dataFile = SD.open(FILE_TITLE, FILE_WRITE);
   if (! dataFile) {
-    Serial.println("error opening datalog.txt");
+    Serial.println("error opening" + FILE_TITLE );
   
   }
   // template for title
@@ -47,17 +47,10 @@ void dataLogger()
   // make a string for assembling the data to log:
   String dataString = "";
 
-  // added day/month/year/Time
-  dataFile.print(dayOftheWeek);
-  dataFile.print(" ");
-  dataFile.print(dateNow);
-  dataFile.print(" ");
-  dataFile.println(timeNow);
-  
 
-  dataString = dataString + String(gRaindata)+ "  ,  " + String(gUvindex)+ "  , " + String(gLux)+ "  , "+ "  , " + String(gIrradiance)+ "  , "+ "  , " + String(gPAR)+ "  , " + String(gWindspeed)+ "  , " + String(gWinddirectiondata)+ "  , " + String(gTemperature)+ "  , "+ String(gPressure)+ "  , "+ String(gHumidity)+ "  , " +String(gReadbatteryvoltage)+ ","; 
-  #if defined LOGGER || defined DEBUG_ALL
+  dataString = dataString +  dateNow + ","+ timeNow + "," + String(gRaindata)+ "," + String(gUvindex)+ "," + String(gLux)+ "," + String(gIrradiance)+ ","+ String(gPAR)+ "," + String(gWindspeed)+ "," + String(gWinddirectiondata)+ "," + String(gTemperature)+ ","+ String(gPressure)+ ","+ String(gHumidity); 
   dataFile.println(dataString);
+  #if defined LOGGER || defined DEBUG_ALL
   Serial.println(dataString);
   #endif
   dataFile.flush();\

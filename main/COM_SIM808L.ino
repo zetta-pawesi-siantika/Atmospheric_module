@@ -103,7 +103,7 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
   //  // Battery channel
-  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field1=" + String(gReadbatteryvoltage)+ "&field2=" + String(gIrradiance)+ "&field3=" + String(gPAR);
+  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field2=" + String(gIrradiance)+ "&field3=" + String(gPAR);
   Serial.println(strBat);
   Serial3.println(strBat);//begin send data to remote server
 
