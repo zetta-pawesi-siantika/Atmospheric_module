@@ -7,10 +7,9 @@ void setupWinddirectionsensor(){
   pinMode(NE, INPUT_PULLUP);
   pinMode(E, INPUT_PULLUP);
   pinMode(SE, INPUT_PULLUP);
-  pinMode(S, INPUT_PULLUP);
+  pinMode(S, INPUT_PULLUP); // hardware is broken
   pinMode(SW, INPUT_PULLUP);
-  pinMode(W, INPUT_PULLUP);
-  pinMode(NW, INPUT_PULLUP);
+
 }
 
 void readWinddirectionsensor(){
@@ -26,17 +25,20 @@ if (digitalRead(N) == LOW) {
   else if (digitalRead(SE) == LOW) {
     gWinddirectiondata = 135; // SOUTH EAST
   }
-  else if (digitalRead(S) == LOW) {
+  else if (digitalRead(S) == LOW) { // hardware is broken. 
     gWinddirectiondata = 180; // SOUTH
   }
   else if (digitalRead(SW) == LOW) {
     gWinddirectiondata = 225; // SOUTH WEST
   }
-  else if (digitalRead(W) == LOW) {
+  else if (analogRead(W) <= 100) { // using analog pin (A6), LOW voltage in ADC value is under 100.
     gWinddirectiondata = 270; // WEST
   }
-  else if (digitalRead(NW) == LOW) {
+  else if (analogRead(NW) <= 100) {// using analog pin (A7), LOW voltage in ADC value is under 100.
     gWinddirectiondata = 315; // NORTH WEST
+  }else
+  {
+    gWinddirectiondata = 180; // SOUTH (THIS IS TEMPORER SOLUTION DUE TO HARDWARE BROKEN ON SOUTH DIRECTION (PIN D5 Sensor)
   }
 
 /* Serial Debug */
