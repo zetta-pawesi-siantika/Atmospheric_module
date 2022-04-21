@@ -15,7 +15,7 @@
 #include <Wire.h>
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+#define DEBUG_UV
 
 void setup() {
   /* Rule
@@ -25,20 +25,18 @@ void setup() {
    */
   
   Wire.begin(10);
-  pinMode(PIN_TRIGGER_RTC, OUTPUT);
-  digitalWrite(PIN_TRIGGER_RTC, LOW); // disable RTC module
 
   Serial.begin(9600); // begin serial communication
-  setupCom();
-//  setupRTCDS3231();
-//  setupRainsensor();
-//  setupUvsensor();
-//  setupAnemosensor();
-//  setupWinddirectionsensor();
+ // setupCom();
+  setupRTCDS3231();
+  setupRainsensor();
+  setupUvsensor();
+  setupAnemosensor();
+  setupWinddirectionsensor();
 //  setupBme280sensor();
-//  setupBH1750();
-  //setupBatterylevel();
-  setupDatalogger();
+  setupBH1750();
+  setupBatterylevel();
+//  setupDatalogger();
 }
 
 void loop() {
@@ -62,20 +60,20 @@ void loop() {
   
    
 
-//  rainData();
-//  readUvsensor();
+ // rainData();
+  readUvsensor();
 //  readAnemosensor();
 //  readWinddirectionsensor();
 //  readBme280sensor();
 //  readBH1750sensor();
 //  //batteryLevel();
 //  printTimennow();
-//  dataLogger();
-  sendDatatoserver();
+//dataLogger();
+ // sendDatatoserver();
 
   Serial.println();
-
-  while(1){} // stop here
+  delay(800);
+//  while(1){} // stop here
   
 
 }

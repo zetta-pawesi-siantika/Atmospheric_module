@@ -14,20 +14,17 @@
   3. Data Logger -> SPI (10-13)
   4. BH1750  -> I2C
 */
-#define PIN_TRIGGER_RTC 25 // RTC trigger
-#define CHIP_SELECT 53 // SS pin on Arduino MEGA BOARD (Micro SD Card property)
-#define BOOTING_SIM808 24
-#define LED 27 // indicator
+#define CHIP_SELECT 10 // SS pin on Arduino PRO MINI (Micro SD Card property)
 /* Analog pin */
 /* block starts here */
  /* UV sensor */
 #define UVPIN A0
 /* rain sensor */
-#define RAINPIN A3 
+#define RAINPIN A1 
 /* Anemometer */
-#define ANEMOMETERPIN A5
+#define ANEMOMETERPIN A2
 /* Battery Level */
-#define PIN_BATTERY_LEVEL A7
+#define PIN_BATTERY_LEVEL A3
 /* Wind vane*/
 #define W A6   // West
 #define NW A7 // North West
