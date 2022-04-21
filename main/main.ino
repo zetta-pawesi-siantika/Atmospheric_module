@@ -17,29 +17,30 @@
 
 void setup() {
   /* Rule
-   *  1. setup all sensor
-   *  2. Setup SIM808 --> connect it to network and put it on sleep mode (Serial interrupt to wake up)
-   *  3. Setup Serial begin
-   */
-  
+      1. Setup Serial begin
+      2. Setup SIM808 --> connect it to network and put it on sleep mode (Serial interrupt to wake up)
+      3. setup all sensor
+  */
+
   Wire.begin(10);
 
   Serial.begin(9600); // begin serial communication
- // setupCom();
+  setupCom();
   setupRTCDS3231();
   setupRainsensor();
   setupUvsensor();
   setupAnemosensor();
   setupWinddirectionsensor();
-//  setupBme280sensor();
+  setupBme280sensor();
   setupBH1750();
   setupBatterylevel();
-//  setupDatalogger();
+  setupDatalogger();
 }
 
 void loop() {
 
-  // read  time
+  // read  time (hour)
+  
 
   // if relax time -->  every 1 once houe
 
@@ -49,29 +50,28 @@ void loop() {
 
 
   /*rule: operation of device:
-   * 1. Turn on SSR relay (SENSORS)
-   * 2. Read the data
-   * 3. Store Data to SD CARD
-   * 4. Send Data To Server
-   * 5. end.
-   */
-  
-   
+     1. Turn on SSR relay (SENSORS)
+     2. Read the data
+     3. Store Data to SD CARD
+     4. Send Data To Server
+     5. end.
+  */
 
- // rainData();
+
+
+  rainData();
   readUvsensor();
-//  readAnemosensor();
-//  readWinddirectionsensor();
-//  readBme280sensor();
-//  readBH1750sensor();
-//  //batteryLevel();
-//  printTimennow();
-//dataLogger();
- // sendDatatoserver();
+  readAnemosensor();
+  readWinddirectionsensor();
+  readBme280sensor();
+  readBH1750sensor();
+  readTimennow();
+  dataLogger();
+  sendDatatoserver();
 
   Serial.println();
   delay(800);
-//  while(1){} // stop here
-  
+  //  while(1){} // stop here
+
 
 }

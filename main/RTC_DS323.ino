@@ -1,11 +1,13 @@
 #include <DS3231.h>
 DS3231  rtc(SDA, SCL);
 
+Time  t;
+
 void setupRTCDS3231(){
    rtc.begin();
 }
 
-void printTimennow(){
+void readTimennow(){
   dayOftheWeek = rtc.getDOWStr();
   dateNow = rtc.getDateStr();
   timeNow = rtc.getTimeStr();
@@ -22,4 +24,14 @@ void printTimennow(){
   // Send time
   Serial.println(timeNow);
   #endif
+}
+
+void getHour(){
+  t = rtc.getTime();
+  hourNow =  t.hour;
+}
+
+void getMinute(){
+  t = rtc.getTime();
+  minuteNow =  t.min;
 }

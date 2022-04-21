@@ -33,5 +33,8 @@ int gWinddirectiondata;
  String dayOftheWeek;
  String dateNow; 
  String timeNow;
+
+ byte hourNow;
+ byte minuteNow;
  
 #endif
