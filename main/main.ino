@@ -18,41 +18,62 @@
 #define DEBUG_ALL
 
 void setup() {
+  /* Rule
+   *  1. setup all sensor
+   *  2. Setup SIM808 --> connect it to network and put it on sleep mode (Serial interrupt to wake up)
+   *  3. Setup Serial begin
+   */
+  
   Wire.begin(10);
   pinMode(PIN_TRIGGER_RTC, OUTPUT);
   digitalWrite(PIN_TRIGGER_RTC, LOW); // disable RTC module
 
   Serial.begin(9600); // begin serial communication
-  //setupCom();
-  setupRTCDS3231();
-  setupRainsensor();
-  setupUvsensor();
-  setupAnemosensor();
-  setupWinddirectionsensor();
-  setupBme280sensor();
-  setupBH1750();
+  setupCom();
+//  setupRTCDS3231();
+//  setupRainsensor();
+//  setupUvsensor();
+//  setupAnemosensor();
+//  setupWinddirectionsensor();
+//  setupBme280sensor();
+//  setupBH1750();
   //setupBatterylevel();
   setupDatalogger();
 }
 
 void loop() {
 
-  rainData();
-  readUvsensor();
-  readAnemosensor();
-  readWinddirectionsensor();
-  readBme280sensor();
-  readBH1750sensor();
-  //batteryLevel();
-  printTimennow();
-  dataLogger();
- // sendDatatoserver();
+  // read  time
+
+  // if relax time -->  every 1 once houe
+
+  // else if operation hour --> every 10 minutes in a hour
+
+  // else --> sleep every 8 secs
+
+
+  /*rule: operation of device:
+   * 1. Turn on SSR relay (SENSORS)
+   * 2. Read the data
+   * 3. Store Data to SD CARD
+   * 4. Send Data To Server
+   * 5. end.
+   */
+  
+   
+
+//  rainData();
+//  readUvsensor();
+//  readAnemosensor();
+//  readWinddirectionsensor();
+//  readBme280sensor();
+//  readBH1750sensor();
+//  //batteryLevel();
+//  printTimennow();
+//  dataLogger();
+  sendDatatoserver();
 
   Serial.println();
-  delay(DELAY_TIME);
-  digitalWrite(25, HIGH); // turn off RTC
-  delay(2000); // send HIGH signal for 2 secs
-
 
   while(1){} // stop here
   
