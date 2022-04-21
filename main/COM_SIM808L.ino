@@ -5,19 +5,16 @@
 #define API_KEY "GX42QNGG2Z7JHL19" // ThinkSpeak API key (keep it secret)
 #define API_KEY_BATTERY "HOUJ7UB20NJDSRCK" // Battery + Light parameter
 
-SoftwareSerial SIM808(2,3); // RX || TX
+SoftwareSerial SIM808(SERIAL_RX,SERIAL_TX); // RX || TX on Arduino Pro Mini
 
 void setupCom()
 {
- 
   SIM808.begin(9600);               // the GPRS baud rate
   delay(1000);
 }
 
 void sendDatatoserver()
 {
-
-
   if (SIM808.available())
     Serial.write(SIM808.read());
 

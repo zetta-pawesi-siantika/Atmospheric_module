@@ -2,17 +2,15 @@
      main code controls all operation. Code execute this file.
      see documentation here:
 */
-/* Const for Code */
+#include "Data_Capture.h"
+#include "IO_Mapping.h"
+#include <Wire.h>
 
 /* CONST Global*/
 #define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
 #define VOLTAGE_REF_5V 5.0 // vcc sensor's is 5.0 V
 #define ADC_RESOLUTION 1023.0 // 10-bits resolution
 #define DELAY_TIME 1000
-
-#include "Data_Capture.h"
-#include "IO_Mapping.h"
-#include <Wire.h>
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
 #define DEBUG_UV

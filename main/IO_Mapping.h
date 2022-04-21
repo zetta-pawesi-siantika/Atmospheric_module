@@ -42,6 +42,10 @@
 #define S 8   // South
 #define SW 9  //South West
 
+/* UART SIM808 */
+#define SERIAL_RX 2
+#define SERIAL_TX 3
+
 
 /* Digital pin block ends here */
 
