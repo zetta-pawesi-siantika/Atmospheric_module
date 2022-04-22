@@ -20,7 +20,7 @@ void setupRainsensor(){
 
 
 // calibrate value for rain detection
-void rainData(){
+void readRainsensor(){
   _rainAnalogread =  analogRead(RAINPIN);
 
   if ( _rainAnalogread < _thresholdMedrain){

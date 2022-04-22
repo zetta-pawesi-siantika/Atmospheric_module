@@ -5,7 +5,7 @@
 #define API_KEY "GX42QNGG2Z7JHL19" // ThinkSpeak API key (keep it secret)
 #define API_KEY_BATTERY "HOUJ7UB20NJDSRCK" // Battery + Light parameter
 
-SoftwareSerial SIM808(SERIAL_RX,SERIAL_TX); // RX || TX on Arduino Pro Mini
+SoftwareSerial SIM808(SERIAL_RX, SERIAL_TX); // RX || TX on Arduino Pro Mini
 
 void setupCom()
 {
@@ -83,7 +83,7 @@ void sendDatatoserver()
   SIM808.println();
 
   // Battery
-   SIM808.println("AT+CIPSPRT=0");
+  SIM808.println("AT+CIPSPRT=0");
   delay(3000);
 
   ShowSerialData();
@@ -96,7 +96,7 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
   //  // Battery channel
-  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field2=" + String(gIrradiance)+ "&field3=" + String(gPAR);
+  String strBat = "GET https://api.thingspeak.com/update?api_key=" + String(API_KEY_BATTERY) + "&field2=" + String(gIrradiance) + "&field3=" + String(gPAR);
   Serial.println(strBat);
   SIM808.println(strBat);//begin send data to remote server
 

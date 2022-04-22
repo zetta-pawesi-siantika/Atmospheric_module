@@ -1,7 +1,3 @@
-#include <DS3231.h>
-DS3231  rtc(SDA, SCL);
-
-Time  t;
 
 void setupRTCDS3231(){
    rtc.begin();
@@ -26,12 +22,14 @@ void readTimennow(){
   #endif
 }
 
-void getHour(){
+byte getHour(){
   t = rtc.getTime();
   hourNow =  t.hour;
+  return hourNow;
 }
 
-void getMinute(){
+byte getMinute(){
   t = rtc.getTime();
   minuteNow =  t.min;
+  return minuteNow;
 }

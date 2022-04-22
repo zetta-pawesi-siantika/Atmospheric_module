@@ -46,7 +46,5 @@
 #define SERIAL_RX 2
 #define SERIAL_TX 3
 
-
 /* Digital pin block ends here */
-
 #endif

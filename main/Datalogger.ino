@@ -50,7 +50,7 @@ void dataLogger()
 
   dataString = dataString +  dateNow + ","+ timeNow + "," + String(gRaindata)+ "," + String(gUvindex)+ "," + String(gLux)+ "," + String(gIrradiance)+ ","+ String(gPAR)+ "," + String(gWindspeed)+ "," + String(gWinddirectiondata)+ "," + String(gTemperature)+ ","+ String(gPressure)+ ","+ String(gHumidity); 
   dataFile.println(dataString);
-  #if defined LOGGER || defined DEBUG_ALL
+  #if defined DEBUG_LOGGER || defined DEBUG_ALL
   Serial.println(dataString);
   #endif
   dataFile.flush();\

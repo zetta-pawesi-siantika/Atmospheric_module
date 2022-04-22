@@ -5,27 +5,50 @@
 #include "Data_Capture.h"
 #include "IO_Mapping.h"
 #include <Wire.h>
+#include <DS3231.h>
+#include "LowPower.h"
+#include <SPI.h>
 
 /* CONST Global*/
 #define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
 #define VOLTAGE_REF_5V 5.0 // vcc sensor's is 5.0 V
 #define ADC_RESOLUTION 1023.0 // 10-bits resolution
 #define DELAY_TIME 1000
+#define RELAY_PIN 4
+
+// define MACRO
+#define DEBUG_LOGGER
+
+/* Hour Operation */
+const byte workTimeinterval = 10; // minutes
+const byte relaxTimeinterval = 59; // night operation every 1 hour
+
+// morning time
+const byte morningTimestart = 4 ; // 4.00 am
+const byte morningTimeend = 6 ; // 6.00 am
+
+// mid Day
+const byte middayTimestart = 11; // 11.00
+const byte middayTimeend = 13 ; // 13.00
+
+// Sunset
+const byte sunsetTimestart = 17; // 17.00
+const byte sunsetTimeend = 19; // 19.00
+
+byte timeIntervalTest = 20; // sec
+
+bool statusOperation;
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_UV
+//#define 
+
+DS3231  rtc(SDA, SCL);
+Time t;
 
 void setup() {
-  /* Rule
-      1. Setup Serial begin
-      2. Setup SIM808 --> connect it to network and put it on sleep mode (Serial interrupt to wake up)
-      3. setup all sensor
-  */
-
-  Wire.begin(10);
-
+  Wire.begin(2); // i2c address
   Serial.begin(9600); // begin serial communication
-  setupCom();
+  //setupCom();
   setupRTCDS3231();
   setupRainsensor();
   setupUvsensor();
@@ -33,45 +56,83 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupBH1750();
-  setupBatterylevel();
   setupDatalogger();
 }
 
 void loop() {
 
-  // read  time (hour)
-  
+  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+  delay(500);
 
-  // if relax time -->  every 1 once houe
+  t = rtc.getTime();
+  byte timeHournow = t.hour;
+  Serial.println(t.hour);
+  delay(500);
 
-  // else if operation hour --> every 10 minutes in a hour
+  if (timeHournow >= morningTimestart && timeHournow < morningTimeend) {
 
-  // else --> sleep every 8 secs
+    operationDevice(workTimeinterval);
+    Serial.println("Morning");
+  }
+  else if (timeHournow >= middayTimestart && timeHournow < middayTimeend) {
+    operationDevice(workTimeinterval);
+    Serial.println("Mid day");
+  }
+  else if (timeHournow >= sunsetTimestart && timeHournow < sunsetTimeend) {
+    operationDevice(workTimeinterval);
+    Serial.println("Sunset");
+  }
+  else {
+    operationDevice(relaxTimeinterval);
+    Serial.println("Relaxing");
+  }
 
-
-  /*rule: operation of device:
-     1. Turn on SSR relay (SENSORS)
-     2. Read the data
-     3. Store Data to SD CARD
-     4. Send Data To Server
-     5. end.
-  */
-
-
-
-  rainData();
-  readUvsensor();
-  readAnemosensor();
-  readWinddirectionsensor();
-  readBme280sensor();
-  readBH1750sensor();
-  readTimennow();
-  dataLogger();
-  sendDatatoserver();
-
-  Serial.println();
   delay(800);
-  //  while(1){} // stop here
+}
 
 
+
+void operationDevice(byte timeInterval) {
+  if (t.min % timeInterval == 0) {
+    Serial.println("OPERATING");
+    activateSensor();
+    readSensor();
+    deactivateSensor();
+    dataLogger();
+    //sendDatatoserver();
+
+   byte endTimeoperation = t.min;
+    while (endTimeoperation == t.min ) {
+      LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+      delay(500);
+    }
+
+  } else {
+    Serial.println("SLEEPING");
+  }
+}
+
+
+void activateSensor() {
+  // relay ssr ON
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);
+}
+
+void deactivateSensor() {
+  // relay ssr OFF
+  //pinMode(4, OUTPUT);
+  digitalWrite(RELAY_PIN, HIGH);
+
+  // return the pin mode to pull up (belongs to wind direction (north))
+  pinMode(N, INPUT_PULLUP);
+}
+
+void readSensor() {
+  readAnemosensor();
+  readBH1750sensor();
+  readBme280sensor();
+  readRainsensor();
+  readUvsensor();
+  readWinddirectionsensor();
 }

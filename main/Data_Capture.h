@@ -26,9 +26,6 @@ float gUvindex;
 /* Wind direction */
 int gWinddirectiondata;
 
-/* Battery Level */
- float gReadbatteryvoltage;
-
  /* Time DS3231 */
  String dayOftheWeek;
  String dateNow; 
