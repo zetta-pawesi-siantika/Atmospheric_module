@@ -1,7 +1,8 @@
 /*
-     main code controls all operation. Code execute this file.
+     main code controls all operation. Code execute in this file.
      see documentation here:
 */
+
 #include "Data_Capture.h"
 #include "IO_Mapping.h"
 #include <Wire.h>
@@ -16,7 +17,7 @@
 #define DELAY_TIME 1000
 #define RELAY_PIN 4
 
-// define MACRO
+// preprocessor write here --> it enabels or disables features
 #define DEBUG_LOGGER
 
 /* Hour Operation */
@@ -40,7 +41,7 @@ byte timeIntervalTest = 20; // sec
 bool statusOperation;
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define 
+//#define
 
 DS3231  rtc(SDA, SCL);
 Time t;
@@ -60,9 +61,6 @@ void setup() {
 }
 
 void loop() {
-
-  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
-  delay(500);
 
   t = rtc.getTime();
   byte timeHournow = t.hour;
@@ -87,10 +85,10 @@ void loop() {
     Serial.println("Relaxing");
   }
 
-  delay(800);
+  delay(1000); // sleep before delay
+  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+  delay(500); // wakeup time
 }
-
-
 
 void operationDevice(byte timeInterval) {
   if (t.min % timeInterval == 0) {
@@ -101,7 +99,7 @@ void operationDevice(byte timeInterval) {
     dataLogger();
     //sendDatatoserver();
 
-   byte endTimeoperation = t.min;
+    byte endTimeoperation = t.min;
     while (endTimeoperation == t.min ) {
       LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
       delay(500);
