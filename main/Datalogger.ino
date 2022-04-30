@@ -2,15 +2,10 @@
  * this function is to log sensors data and stores it in micro SD Card
 */
 
-//Libraries
+
 #include <SPI.h>
 #include <SD.h>
-//#include "Data_Capture.h"
 
-// PIN Definition
-
-
-// Global Conts 
 String FILE_TITLE ="ATM_TEST.txt";
 
 // Local Conts 

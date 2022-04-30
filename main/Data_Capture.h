@@ -26,8 +26,7 @@ float gUvindex;
 /* Wind direction */
 int gWinddirectiondata;
 
- /* Time DS3231 */
- String dayOftheWeek;
+/* Time DS3231 */
  String dateNow; 
  String timeNow;
 

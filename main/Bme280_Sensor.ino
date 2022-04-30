@@ -1,5 +1,6 @@
-/* BME 280 sensor properties */
-// it produces Temperature (deg celcius), Barometric pressure, and Humidity.
+/* BME 280 sensor properties 
+ *  it measures Temperature (deg celcius), Barometric pressure, and Humidity.
+ */
 
 #include <Adafruit_BME280.h>
 #define SEALEVELPRESSURE_HPA (1013.25)

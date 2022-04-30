@@ -1,24 +1,20 @@
-
+/* this file contains RTC DS3231. It gives date and time
+ *  
+ */
 void setupRTCDS3231(){
    rtc.begin();
 }
 
 void readTimennow(){
-  dayOftheWeek = rtc.getDOWStr();
   dateNow = rtc.getDateStr();
   timeNow = rtc.getTimeStr();
   
   #if defined DEBUG_RTCDS3231 || defined DEBUG_ALL
-    // Send Day-of-Week
-  Serial.print(dayOftheWeek);
-  Serial.print(" ");
-  
   // Send date
-  Serial.print(dateNow);
-  Serial.print(" -- ");
-
+  Serial.print(F(dateNow));
+  Serial.print(F(" -- "));
   // Send time
-  Serial.println(timeNow);
+  Serial.println(F(timeNow));
   #endif
 }
 
