@@ -27,7 +27,7 @@ void readUvsensor() {
   }
 
 #if defined DEBUG_UV || defined DEBUG_ALL
-  Serial.print("UV index: ");
+  Serial.print(F("UV index: "));
   Serial.println(gUvindex);
 #endif
 }
