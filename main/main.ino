@@ -18,7 +18,7 @@
 #define RELAY_PIN 4
 
 // preprocessor write here --> it enabels or disables features
-#define DEBUG_LOGGER
+
 
 /* Hour Operation */
 const byte workTimeinterval = 10; // minutes
@@ -49,7 +49,7 @@ Time t;
 void setup() {
   Wire.begin(2); // i2c address
   Serial.begin(9600); // begin serial communication
-  //setupCom();
+  setupCom();
   setupRTCDS3231();
   setupRainsensor();
   setupUvsensor();

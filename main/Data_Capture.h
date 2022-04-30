@@ -8,7 +8,7 @@
 float gWindspeed = 0; 
 
 /* BME280 */
-float gTemperature;
+byte gTemperature;
 float gPressure;
 float gHumidity;
 
