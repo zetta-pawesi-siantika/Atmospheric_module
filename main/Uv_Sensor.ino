@@ -13,7 +13,6 @@ const float UV_SLOPE = 0.01;
 const float V_REF_UV = 3300.0; // mV
 
 
-
 // setup method
 void setupUvsensor() {
   pinMode(UVPIN, INPUT);
