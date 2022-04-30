@@ -97,7 +97,7 @@ void operationDevice(byte timeInterval) {
     readSensor();
     deactivateSensor();
     dataLogger();
-    //sendDatatoserver();
+    sendDatatoserver();
 
     byte endTimeoperation = t.min;
     while (endTimeoperation == t.min ) {
