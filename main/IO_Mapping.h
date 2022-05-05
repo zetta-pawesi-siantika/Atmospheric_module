@@ -30,7 +30,6 @@
 
 /* analog pin block ends here */
 
-
 /* Digital Pin */
 /* block starts here */
 

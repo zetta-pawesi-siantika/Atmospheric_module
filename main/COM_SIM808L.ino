@@ -1,11 +1,15 @@
+/* SIM808L properties
+    Please notice APIKEY from Thinkspeak
+    and APN setting
+*/
+
 #include <SoftwareSerial.h>
 
-SoftwareSerial SIM808(SERIAL_RX, SERIAL_TX); 
+SoftwareSerial SIM808(SERIAL_RX, SERIAL_TX);
 
 void setupCom()
 {
-  SIM808.begin(9600);               
-  delay(1000);
+  SIM808.begin(9600);
 }
 
 void sendDatatoserver()
@@ -67,10 +71,10 @@ void sendDatatoserver()
   ShowSerialData();
 
   // Sensors channel
- 
-  SIM808.println("GET https://api.thingspeak.com/update?api_key=GX42QNGG2Z7JHL19&field1=" + String(gWindspeed) + "&field2=" + String(gPressure) + "&field3=" + String(gTemperature) + "&field4=" + String(gRaindata) + "&field5=" + String(gLux) + "&field6=" + String(gUvindex) + "&field7=" + String(gWinddirectiondata) + "&field8=" + String(gHumidity));//begin send data to remote server
-
-  delay(200);
+  SIM808.print(F("GET https://api.thingspeak.com/update?api_key=GX42QNGG2Z7JHL19"));//begin send data to remote server
+  delay(1000);
+  SIM808.println(+ "&field1=" + String(gWindspeed) + "&field2=" + String(gPressure) + "&field3=" + String(gTemperature) + "&field4=" + String(gRaindata) + "&field5=" + String(gUvindex) + "&field6=" + String(gWinddirectiondata) + "&field7=" + String(gHumidity));
+  delay(2000);
   ShowSerialData();
 
   SIM808.println((char)26);//sending
@@ -91,8 +95,8 @@ void sendDatatoserver()
   delay(4000);
   ShowSerialData();
 
-  // Light Parameter 
-  SIM808.println("GET https://api.thingspeak.com/update?api_key=GX42QNGG2Z7JHL19&field1=" + String(gWindspeed) + "&field2=" + String(gPressure) + "&field3=" + String(gTemperature));//begin send data to remote server
+  // Light Parameter
+  SIM808.println("GET https://api.thingspeak.com/update?api_key=HOUJ7UB20NJDSRCK&field1=" + String(gLux) + "&field2=" + String(gPAR) + "&field3=" + String(gIrradiance));//begin send data to remote server
 
   delay(2000);
   ShowSerialData();
@@ -108,8 +112,10 @@ void sendDatatoserver()
 }
 void ShowSerialData()
 {
+#if defined DEBUG_SIM808L || defined DEBUG_ALL
   while (SIM808.available() != 0)
     Serial.write(SIM808.read());
   delay(5000);
+#endif
 
 }
