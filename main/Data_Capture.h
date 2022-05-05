@@ -8,9 +8,9 @@
 float gWindspeed = 0;
 
 /* BME280 */
-byte gTemperature;
-byte gPressure;
-byte gHumidity;
+float gTemperature;
+float gPressure;
+float gHumidity;
 
 /* Rain Sensor */
 int gRaindata;

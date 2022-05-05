@@ -14,7 +14,7 @@ void readRainsensor() {
   // HEAVY RAIN ranges is from  0 - 399
 
   _rainAnalogread =  analogRead(RAINPIN);
-  if ( _rainAnalogread < _thresholdMedrain) {
+  if ( _rainAnalogread > _thresholdMedrain) {
     gRaindata = 3; // Heavy rain
   }
   else if (_rainAnalogread >= _thresholdMedrain && _rainAnalogread < _thresholdLightrain) {

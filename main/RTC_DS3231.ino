@@ -11,10 +11,10 @@ void readTimennow(){
   
   #if defined DEBUG_RTCDS3231 || defined DEBUG_ALL
   // Send date
-  Serial.print(F(dateNow));
-  Serial.print(F(" -- "));
+  Serial.print(dateNow);
+  Serial.print(" -- ");
   // Send time
-  Serial.println(F(timeNow));
+  Serial.println(timeNow);
   #endif
 }
 

@@ -15,7 +15,7 @@
 /* CONST Global*/
 #define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
 #define VOLTAGE_REF_5V 5.0 // vcc sensor's is 5.0 V
-#define ADC_RESOLUTION 1023.0 // 10-bits resolution
+#define ADC_RESOLUTION 1024.0 // 10-bits resolution
 
 
 // preprocessor write here --> it enabels or disables features
@@ -40,14 +40,14 @@ const byte sunsetTimeend = 19; // 19.00
 
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define
+#define DEBUG_ALL
 
 DS3231  rtc(SDA, SCL);
 Time t;
 
 void setup() {
-  Wire.begin(2); // i2c address
-  Serial.begin(9600); // begin serial communication
+  Wire.begin();
+  Serial.begin(9600);
   setupCom();
   setupRTCDS3231();
   setupRainsensor();
@@ -60,33 +60,36 @@ void setup() {
 }
 
 void loop() {
+//  t = rtc.getTime();
+//  byte timeHournow = t.hour;
+//  Serial.println(t.hour);
+//  delay(500);
+//
+//  if (timeHournow >= morningTimestart && timeHournow < morningTimeend) {
+//
+//    operationDevice(workTimeinterval);
+//    Serial.println("Morning");
+//  }
+//  else if (timeHournow >= middayTimestart && timeHournow < middayTimeend) {
+//    operationDevice(workTimeinterval);
+//    Serial.println("Mid day");
+//  }
+//  else if (timeHournow >= sunsetTimestart && timeHournow < sunsetTimeend) {
+//    operationDevice(workTimeinterval);
+//    Serial.println("Sunset");
+//  }
+//  else {
+//    operationDevice(relaxTimeinterval);
+//    Serial.println("Relaxing");
+//  }
 
-  t = rtc.getTime();
-  byte timeHournow = t.hour;
-  Serial.println(t.hour);
-  delay(500);
+//  delay(1000); // sleep before delay
+//  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+//  delay(500); // wakeup time
 
-  if (timeHournow >= morningTimestart && timeHournow < morningTimeend) {
-
-    operationDevice(workTimeinterval);
-    Serial.println("Morning");
-  }
-  else if (timeHournow >= middayTimestart && timeHournow < middayTimeend) {
-    operationDevice(workTimeinterval);
-    Serial.println("Mid day");
-  }
-  else if (timeHournow >= sunsetTimestart && timeHournow < sunsetTimeend) {
-    operationDevice(workTimeinterval);
-    Serial.println("Sunset");
-  }
-  else {
-    operationDevice(relaxTimeinterval);
-    Serial.println("Relaxing");
-  }
-
-  delay(1000); // sleep before delay
-  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
-  delay(500); // wakeup time
+activateSensor();
+readSensor();
+delay(1000);
 }
 
 void operationDevice(byte timeInterval) {
@@ -118,7 +121,6 @@ void activateSensor() {
 
 void deactivateSensor() {
   // relay ssr OFF
-  //pinMode(4, OUTPUT);
   digitalWrite(RELAY_PIN, HIGH);
 
   // return the pin mode to pull up (belongs to wind direction (north))
@@ -132,4 +134,5 @@ void readSensor() {
   readRainsensor();
   readUvsensor();
   readWinddirectionsensor();
+  readTimennow();
 }

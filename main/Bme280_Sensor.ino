@@ -9,7 +9,7 @@ Adafruit_BME280 bme;
 
 void setupBme280sensor() {
   unsigned status;
-  status = bme.begin();
+  status = bme.begin(0x76, &Wire); // IT SHOULD BE DECLARED LIKE THIS!!!
 }
 
 void readBme280sensor() {
