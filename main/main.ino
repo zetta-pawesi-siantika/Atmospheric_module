@@ -5,17 +5,18 @@
 
 #include "Data_Capture.h"
 #include "IO_Mapping.h"
+#include "LowPower.h"
 #include <Wire.h>
 #include <DS3231.h>
-#include "LowPower.h"
 #include <SPI.h>
+
+
 
 /* CONST Global*/
 #define VOLTAGE_REF_3V3 3.3 // vcc sensor's is 3.3 V
 #define VOLTAGE_REF_5V 5.0 // vcc sensor's is 5.0 V
 #define ADC_RESOLUTION 1023.0 // 10-bits resolution
-#define DELAY_TIME 1000
-#define RELAY_PIN 4
+
 
 // preprocessor write here --> it enabels or disables features
 
@@ -36,9 +37,7 @@ const byte middayTimeend = 13 ; // 13.00
 const byte sunsetTimestart = 17; // 17.00
 const byte sunsetTimeend = 19; // 19.00
 
-byte timeIntervalTest = 20; // sec
 
-bool statusOperation;
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
 //#define

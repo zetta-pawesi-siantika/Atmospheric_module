@@ -34,6 +34,10 @@
 
 /* Digital Pin */
 /* block starts here */
+
+/*Relay */
+#define RELAY_PIN 9
+
 /* Wind Direction */
 #define N 4   // North 
 #define NE 5  // North East
