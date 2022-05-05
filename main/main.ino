@@ -17,11 +17,7 @@
 #define VOLTAGE_REF_5V 5.0 // vcc sensor's is 5.0 V
 #define ADC_RESOLUTION 1024.0 // 10-bits resolution
 
-
-// preprocessor write here --> it enabels or disables features
-
-
-/* Hour Operation */
+/* Hour Operation Consts */
 const byte workTimeinterval = 10; // minutes
 const byte relaxTimeinterval = 59; // night operation every 1 hour
 
@@ -40,7 +36,7 @@ const byte sunsetTimeend = 19; // 19.00
 
 
 // use preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-#define DEBUG_ALL
+//#define DEBUG_ALL
 
 DS3231  rtc(SDA, SCL);
 Time t;

@@ -18,9 +18,9 @@
 /* Analog pin */
 /* block starts here */
  /* UV sensor */
-#define UVPIN A0
+#define UVPIN A1
 /* rain sensor */
-#define RAINPIN A1 
+#define RAINPIN A0 
 /* Anemometer */
 #define ANEMOMETERPIN A2
 /* Battery Level */

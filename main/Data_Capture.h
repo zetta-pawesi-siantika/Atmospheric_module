@@ -21,7 +21,7 @@ float gIrradiance;
 float gPAR;
 
 /* Uv Sensor */
-byte gUvindex;
+float gUvindex;
 
 /* Wind direction */
 int gWinddirectiondata;

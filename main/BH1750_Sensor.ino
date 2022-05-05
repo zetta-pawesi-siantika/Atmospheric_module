@@ -30,7 +30,7 @@ void readBH1750sensor() {
 
   Serial.print(F("PAR: "));
   Serial.print(gPAR);
-  Serial.println(F("µmoles/m2/s"));
+  Serial.println(F(" µmoles/m2/s"));
 
 #endif
 }
