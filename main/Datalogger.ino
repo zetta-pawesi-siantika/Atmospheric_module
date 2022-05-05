@@ -15,16 +15,15 @@ void setupDatalogger()
   if (!SD.begin(CHIP_SELECT)) {
     Serial.println(F("Card failed, or not present"));
   }
-  Serial.println(F("card initialized."));
   
 
   dataFile = SD.open(F("ATM.txt"), FILE_WRITE);
   if (! dataFile) {
-    Serial.println(F("error opening ATM.txt"));
+    Serial.println(F("error opening file.txt"));
   
   }
   // template for title
-  dataFile.println(F(" Date,Time Stamp,Rain Intens,Uv Index,Lux,Solar Irradiance(W/m2),PAR(µmoles/m2/s),Wind spd(m/s),Wind Direction,Temp(C),pressure(hPa),Humd(%)"));
+  //dataFile.println(F(" Date,Time Stamp,Rain Intens,Uv Index,Lux,Solar Irradiance(W/m2),PAR(µmoles/m2/s),Wind spd(m/s),Wind Direction,Temp(C),pressure(hPa),Humd(%)"));
 }
 
 void dataLogger()

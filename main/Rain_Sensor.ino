@@ -27,7 +27,6 @@ void readRainsensor() {
     gRaindata = 0;// No Rain
   }
 
-
 #if defined DEBUG_RAIN_SENSOR || defined DEBUG_ALL
   Serial.print(F("Rain data : "));
   Serial.println(gRaindata);

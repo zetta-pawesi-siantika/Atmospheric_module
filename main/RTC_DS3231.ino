@@ -1,6 +1,5 @@
-/* this file contains RTC DS3231. It gives date and time
- *  
- */
+/* this file contains RTC DS3231. It provides current date and time */
+
 void setupRTCDS3231(){
    rtc.begin();
 }

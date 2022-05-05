@@ -1,26 +1,25 @@
-/* *************************************************************************** */
-/* This sketch file is used to initialize IO pin on ARDUINO PRO MINI 5V 16 MHZ */
-/* board                                                                       */
-/* Created by: Pawesi Siantika || 2022                                         */
-/* *************************************************************************** */
+/* **************************************************************************** */
+/* This sketch file is used to initialize IO pin on ARDUINO Nano New bootloader */
+/* board                                                                        */
+/* **************************************************************************** */
 
 #ifndef IO_MAPPING_H
 #define IO_MAPPING_H
 
-/* No needs declare Pin */
-/* many peripherals don't need require initilize Pin, there are:
-  1. DS32331 -> I2C on D20 and D21
-  2. BME 280 -> I2C
+/* No needs to declare Pin */
+/* many peripherals don't need  initialize Pin, which are:
+  1. DS32331 -> I2C 
+  2. BME 280 -> I2C (Address: 0x76)
   3. Data Logger -> SPI (10-13)
   4. BH1750  -> I2C
 */
-#define CHIP_SELECT 10 // SS pin on Arduino PRO MINI (Micro SD Card property)
+#define CHIP_SELECT 10 // SS pin on Arduino Nano (Micro SD Card property)
 /* Analog pin */
 /* block starts here */
- /* UV sensor */
-#define UVPIN A1
 /* rain sensor */
 #define RAINPIN A0 
+ /* UV sensor */
+#define UVPIN A1
 /* Anemometer */
 #define ANEMOMETERPIN A2
 /* Battery Level */
@@ -46,7 +45,7 @@
 #define S 8   // South
 #define SW 9  //South West
 
-/* UART SIM808 */
+/* UART pin SIM808 */
 #define SERIAL_RX 2
 #define SERIAL_TX 3
 
