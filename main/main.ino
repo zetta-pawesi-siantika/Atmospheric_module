@@ -19,8 +19,8 @@
 #define ADC_RESOLUTION 1024.0 // 10-bits resolution
 
 /* Hour Operation Consts */
-const byte WORK_TIME_INTERVAL = 10; // minutes
-const byte RELAX_TIME_INTERVAL = 59; // relaxing operation is every 1 hour
+const byte WORK_TIME_INTERVAL = 12; // minutes
+const byte RELAX_TIME_INTERVAL = 60; // relaxing operation is every 1 hour
 
 // morning time
 const byte MORNING_TIME_START = 4 ; // 4.00 am
@@ -37,7 +37,8 @@ const byte SUNSET_TIME_END = 19; // 19.00
 
 
 // using preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define DEBUG_ALL
+//#define DEBUG_SIM808L
+//#define DEBUG_OPT
 
 DS3231  rtc(SDA, SCL);
 Time t;
@@ -53,7 +54,7 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupBH1750();
-  setupDatalogger();
+ // setupDatalogger();
 }
 
 void loop() {
@@ -66,19 +67,19 @@ void loop() {
   }
   else if (timeHournow >= MID_DAY_START && timeHournow < MID_DAY_END) {
     operationDevice(WORK_TIME_INTERVAL);
-    #ifdef DEBUG_ALL
+    #if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Mid day");
     #endif
   }
   else if (timeHournow >= SUNSET_TIME_START && timeHournow < SUNSET_TIME_END) {
     operationDevice(WORK_TIME_INTERVAL);
-    #ifdef DEBUG_ALL
+    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Sunset");
      #endif
   }
   else {
     operationDevice(RELAX_TIME_INTERVAL);
-    #ifdef DEBUG_ALL
+    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Relaxing");
     #endif
   }
@@ -86,29 +87,29 @@ void loop() {
   delay(2000); // delay before sleep
   LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
   delay(2000); // wakeup time
-
 }
 
 void operationDevice(byte timeInterval) {
   if (t.min % timeInterval == 0) {
-    #ifdef DEBUG_ALL
+    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("OPERATING");
     #endif
     
     activateSensor();
     readSensor();
     deactivateSensor();
-    dataLogger();
+    //dataLogger();
     sendDatatoserver();
 
     byte endTimeoperation = t.min;
     while (endTimeoperation == t.min ) {
+      t = rtc.getTime();
       LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
-      delay(500);
+      delay(2000);
     }
 
   } else {
-    #ifdef DEBUG_ALL
+    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("SLEEPING");
     #endif
   }
