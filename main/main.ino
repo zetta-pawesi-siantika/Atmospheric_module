@@ -1,5 +1,5 @@
 /* *************************************************************************** */
-/* Atmospheric Module Firmware V.1.0                                           */                           
+/* Atmospheric Module Firmware V.1.0                                           */
 /* Created by: Pawesi Siantika || 2022 || copyrights: Zettabyte Pte. Ltd.      */
 /* main code is executed first.                                                */
 /* see documentation here:                                                     */
@@ -37,14 +37,13 @@ const byte SUNSET_TIME_END = 19; // 19.00
 
 
 // using preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define DEBUG_SIM808L
+//#define DEBUG_ALL
 //#define DEBUG_OPT
 
 DS3231  rtc(SDA, SCL);
 Time t;
 
 void setup() {
-  Wire.begin();
   Serial.begin(9600);
   setupCom();
   setupRTCDS3231();
@@ -54,34 +53,39 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupBH1750();
- // setupDatalogger();
+  // setupDatalogger();
+  activateSensor();
 }
 
 void loop() {
   t = rtc.getTime();
   byte timeHournow = t.hour;
+  
+#if defined DEBUG_MAIN || DEBUG_ALL
+  Serial.print("Hour: ");
+  Serial.println(timeHournow);
+#endif
 
   if (timeHournow >= MORNING_TIME_START && timeHournow < MORNING_TIME_END) {
-
     operationDevice(WORK_TIME_INTERVAL);
   }
   else if (timeHournow >= MID_DAY_START && timeHournow < MID_DAY_END) {
     operationDevice(WORK_TIME_INTERVAL);
-    #if defined DEBUG_MAIN || defined DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Mid day");
-    #endif
+#endif
   }
   else if (timeHournow >= SUNSET_TIME_START && timeHournow < SUNSET_TIME_END) {
     operationDevice(WORK_TIME_INTERVAL);
-    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Sunset");
-     #endif
+#endif
   }
   else {
     operationDevice(RELAX_TIME_INTERVAL);
-    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("Relaxing");
-    #endif
+#endif
   }
 
   delay(2000); // delay before sleep
@@ -91,10 +95,10 @@ void loop() {
 
 void operationDevice(byte timeInterval) {
   if (t.min % timeInterval == 0) {
-    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("OPERATING");
-    #endif
-    
+#endif
+
     activateSensor();
     readSensor();
     deactivateSensor();
@@ -109,9 +113,9 @@ void operationDevice(byte timeInterval) {
     }
 
   } else {
-    #ifdef defined DEBUG_MAIN || defined DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
     Serial.println("SLEEPING");
-    #endif
+#endif
   }
 }
 
