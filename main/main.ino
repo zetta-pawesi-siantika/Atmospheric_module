@@ -36,9 +36,8 @@ const byte SUNSET_TIME_END = 19; // 19.00
 
 
 
-// using preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define DEBUG_ALL
-//#define DEBUG_OPT
+//// using preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
+//#define DEBUG_MAIN
 
 DS3231  rtc(SDA, SCL);
 Time t;
@@ -61,7 +60,7 @@ void loop() {
   t = rtc.getTime();
   byte timeHournow = t.hour;
   
-#if defined DEBUG_MAIN || DEBUG_ALL
+#if defined DEBUG_MAIN || defined DEBUG_ALL
   Serial.print("Hour: ");
   Serial.println(timeHournow);
 #endif
@@ -100,6 +99,7 @@ void operationDevice(byte timeInterval) {
 #endif
 
     activateSensor();
+    delay(1500);
     readSensor();
     deactivateSensor();
     //dataLogger();
