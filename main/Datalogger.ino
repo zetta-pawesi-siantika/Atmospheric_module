@@ -1,8 +1,8 @@
 /*Data logger properties
  * this function is to log sensors data and stores it in micro SD Card
+ * Max. micro sd card memory: 16 GB
 */
 
-// Currently disable 
 
 #include <SPI.h>
 #include <SD.h>

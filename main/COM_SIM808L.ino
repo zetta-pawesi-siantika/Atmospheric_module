@@ -1,6 +1,5 @@
 /* SIM808L properties
-    Please notice APIKEY from Thinkspeak
-    and APN setting
+ *  Please notice APIKEY from Thinkspeak and APN setting : m2mautotronic (default). for more: https://wa.me/+62811526010 (autotronic)
 */
 
 #include <SoftwareSerial.h>

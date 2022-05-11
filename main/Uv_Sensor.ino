@@ -1,7 +1,6 @@
-/* This file contains GUVA 12 sensor (UV sensor)
+/* This file contains GUVA 12 sensor (UV sensor)properties
  *  It measures UV index (0-11)
  *  src: https://electropeak.com/learn/interfacing-guva-s12sd-uv-light-sensor-module-with-arduino/
- * 
  */
    
 void setupUvsensor() {

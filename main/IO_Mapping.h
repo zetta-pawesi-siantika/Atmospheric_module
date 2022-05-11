@@ -22,8 +22,6 @@
 #define UVPIN A1
 /* Anemometer */
 #define ANEMOMETERPIN A2
-/* Battery Level */
-#define PIN_BATTERY_LEVEL A3
 /* Wind vane*/
 #define W A6   // West
 #define NW A7 // North West

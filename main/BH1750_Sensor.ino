@@ -1,5 +1,5 @@
-/* This file contains BH1750 sensor. It measures lux actually but we can measure irradiance and PAR using conversion
- *  
+/* This file contains BH1750 sensor
+ *  It measures lux actually but we can measure irradiance and PAR using conversion
  */
  
 #include <BH1750.h>

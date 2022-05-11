@@ -1,6 +1,6 @@
-/* This file contains Wind direction sensors
+/* This file contains Wind direction sensors properties
  *  It measures direction of wind in degree
- *  
+ *  src: https://www.depoinovasi.com/produk-776-sensor-arah-angin.html
  */
 
 void setupWinddirectionsensor(){

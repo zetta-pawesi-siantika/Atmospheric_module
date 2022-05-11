@@ -2,7 +2,9 @@
 /* Atmospheric Module Firmware V.1.0                                           */
 /* Created by: Pawesi Siantika || 2022 || copyrights: Zettabyte Pte. Ltd.      */
 /* main code is executed first.                                                */
-/* see documentation here:                                                     */
+/* see documentation here: https://bit.ly/ATM_firmdoc                          */
+/* This is a full features but you have to choose 1 of data storage (Thinkspeak*/
+/* Micro SD card)    !!!                                                       */
 /* *************************************************************************** */
 
 #include "Data_Capture.h"
@@ -27,17 +29,17 @@ const byte MORNING_TIME_START = 4 ; // 4.00 am
 const byte MORNING_TIME_END = 6 ; // 6.00 am
 
 // mid Day
-const byte MID_DAY_START = 11; // 11.00
-const byte MID_DAY_END = 13 ; // 13.00
+const byte MID_DAY_START = 11; // 11.00 am
+const byte MID_DAY_END = 13 ; // 01.00 pm
 
 // Sunset
-const byte SUNSET_TIME_START = 17; // 17.00
-const byte SUNSET_TIME_END = 19; // 19.00
+const byte SUNSET_TIME_START = 17; // 05.00 pm
+const byte SUNSET_TIME_END = 19; // 07.00 pm
 
 
 
-//// using preprocessor method (check documentation: https://docs.google.com/document/d/10_jPgvdRyReOkWolBOLf4YiwogQpMxXjzttXRmqAFns/edit)
-//#define DEBUG_MAIN
+// Using preprocessor method (check documentation:https://bit.ly/ATM_firmdoc)
+//#define DEBUG_ALL
 
 DS3231  rtc(SDA, SCL);
 Time t;
@@ -52,14 +54,14 @@ void setup() {
   setupWinddirectionsensor();
   setupBme280sensor();
   setupBH1750();
-  // setupDatalogger();
+  setupDatalogger();
   activateSensor();
 }
 
 void loop() {
   t = rtc.getTime();
   byte timeHournow = t.hour;
-  
+
 #if defined DEBUG_MAIN || defined DEBUG_ALL
   Serial.print("Hour: ");
   Serial.println(timeHournow);
@@ -89,7 +91,7 @@ void loop() {
 
   delay(2000); // delay before sleep
   LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
-  delay(2000); // wakeup time
+  delay(2000); // wakeup time (don't put less value than this !!!)
 }
 
 void operationDevice(byte timeInterval) {
@@ -102,7 +104,7 @@ void operationDevice(byte timeInterval) {
     delay(1500);
     readSensor();
     deactivateSensor();
-    //dataLogger();
+    dataLogger();
     sendDatatoserver();
 
     byte endTimeoperation = t.min;

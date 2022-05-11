@@ -1,14 +1,10 @@
-/* Anemometer sensor properties */
-// it produces wind speed value
-// src: https://www.instructables.com/How-to-Use-a-Adafruit-Anemometer-Sensor-With-Ardui/
+/* Anemometer sensor properties 
+ *  It produces wind speed value
+ *  src: https://www.instructables.com/How-to-Use-a-Adafruit-Anemometer-Sensor-With-Ardui/
+ */
 
-
-
-
-// setup method
 void setupAnemosensor() {
   pinMode(ANEMOMETERPIN, INPUT);
-
 }
 
 void readAnemosensor() {
